@@ -529,7 +529,7 @@ papaya.data.Atlases['vH'] = {
 
 var papayaLoadableImages = [
     { //0
-        // hide: false,
+        hide: true,
         // name: "atlas_MBM_cortex_vPaxinos_both_same",
         // nicename: "Atlas",
         // url: "data/atlas_MBM_cortex_vPaxinos_both_same.nii.gz",
@@ -538,48 +538,69 @@ var papayaLoadableImages = [
         name: "atlas_MBM_cortex_vPaxinos_both_same",
         nicename: "atlas_MBM_cortex_vPaxinos_both_same",
         url: "data/atlas_MBM_cortex_vPaxinos_both_same.nii.gz",
+        hide: true
     },
     { //2
         name: "template_myelinmap_brain",
-        nicename: "template_myelinmap_brain",
+        nicename: "template_myelinmap",
         url: "data/template_myelinmap_brain.nii.gz",
+        hide: false
     },
     {//3
         name: "template_T1w_brain",
-        nicename: "template_T1w_brain",
+        nicename: "template_T1w",
         url: "data/template_T1w_brain.nii.gz",
+        hide: false
     },
     { //4
         name: "template_T2w_brain",
-        nicename: "template_T2w_brain",
+        nicename: "template_T2w",
         url: "data/template_T2w_brain.nii.gz",
+        hide: false
     },
     { //5
         name: 'graymid',
         nicename: "Gray Mid Right",
         url: "data" + "/surfFS.rh.graymid.surf.gii",
-        surface: true
+        surface: true,
+        hide: true
     },
     { //6
         name: "Paxinos Surface Boundaries",
         nicename: "Paxinos Surface Boundaries",
         url: "data" + '/atlas_MBM_cortex_vPaxinos_and_subcortical_borders.R.func.gii',
-        surface: true
+        surface: true,
+        hide: true
     },
     { //7
         name: 'Paxinos Boundaries',
         nicename: "Paxinos Atlas Boundaries",
         url: "data" + '/atlas_MBM_cortex_vPaxinos_and_subcortical_borders.nii.gz',
+        hide: true
     },
     { //8
         name: 'v4_atlas',
         nicename: "v4_atlas",
         url: "data" + '/atlas_MBMv4_cortex_parcellation_both_same.nii.gz',
+        hide: true
     },
     { //9
         name: 'vH_atlas',
         nicename: "vH_atlas",
         url: "data" + '/atlas_MBM_cortex_vH_both_same.nii.gz',
+        hide: true
+    },
+    { //10
+        name: 'parcellation_primary',
+        nicename: "parcellation_primary",
+        url: "data" + '/atlas_MBMv4_networks_parcellation_primary.nii.gz',
+        hide: false
+    },
+    { //11
+        name: 'parcellation_secondary',
+        nicename: "parcellation_secondary",
+        url: "data" + '/atlas_MBMv4_networks_parcellation_secondary.nii.gz',
+        hide: false
     }
 ];
 
