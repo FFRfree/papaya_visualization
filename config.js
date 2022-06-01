@@ -409,8 +409,8 @@ papaya.data.Atlases["vPaxinos"] = {
                 images: {
                     summaryimagefile: "atlas_MBM_cortex_vPaxinos_both_same"
                 },
-                name: "Marmoset Brain Mapping Atlas V2 Merged ROIs with vH cortex reindex",
-                type: "Combined all white matter, subcortical, and cortex (vH) ROIs reindex",
+                name: "Atlas V3 cortex Paxinos",
+                type: "Label",
                 // images: {
                 //     summaryimagefile: "atlas_MBM_cortex_vPaxinos_and_subcortical",
                 // },
@@ -428,8 +428,9 @@ papaya.data.Atlases["vPaxinos"] = {
             max: 0,
             alpha: 0.3
         },
-        boundaryimagefile: 'Paxinos Boundaries',
-        boundarysurfacefile: 'Paxinos Surface Boundaries',
+        // boundaryimagefile: 'Paxinos Boundaries',
+        // boundarysurfacefile: 'Paxinos Surface Boundaries',
+        boundarysurfacefile: 'v4 surface shape',
         data: null,
     }
 };
@@ -458,8 +459,8 @@ papaya.data.Atlases["v4"] = {
             },
             header: {
                 images: { summaryimagefile: "v4_atlas" },
-                name: "Marmoset Brain Mapping Atlas V2 Merged ROIs with vH cortex reindex",
-                type: "Combined all white matter, subcortical, and cortex (vH) ROIs reindex"
+                name: "Atlas V4 cortex FC",
+                type: "Label"
             },
             version: 2
         }
@@ -505,8 +506,8 @@ papaya.data.Atlases['vH'] = {
             },
             header: {
                 images: { summaryimagefile: "vH_atlas" },
-                name: "Marmoset Brain Mapping Atlas V2 Merged ROIs with vH cortex reindex",
-                type: "Combined all white matter, subcortical, and cortex (vH) ROIs reindex"
+                name: "Atlas V3 cortex vH",
+                type: "Label"
             }, version: 2
         }
     },
@@ -601,6 +602,18 @@ var papayaLoadableImages = [
         nicename: "parcellation_secondary",
         url: "data" + '/atlas_MBMv4_networks_parcellation_secondary.nii.gz',
         hide: false
+    },
+    { //12
+        name: 'v4 surface label',
+        nicename: "v4 surface label",
+        url: "data" + '/surfFS.rh.MBMv4_cortex_parcellation.label.gii',
+        surface: true,
+    },
+    { //13
+        name: 'v4 surface shape',
+        nicename: "v4 surface shape",
+        url: "data" + '/surfFS.rh.MBMv4_cortex_parcellation.R.func.gii',
+        surface: true,
     }
 ];
 
@@ -799,3 +812,7 @@ params['atlas_MBM_cortex_vH_both_same.nii.gz'] = {
     max: 259,
     lut: "Custom",
 };
+params['template_myelinmap_brain.nii.gz'] = {
+    min: 0,
+    max: 3
+}
