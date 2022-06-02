@@ -114,8 +114,22 @@ function loadatlas(url, boundaryData) {
 PAPAYA_BUILD_NUM = "1594";
 ("use strict");
 papaya.data.Atlas.boundaryData = papaya.data.Atlas.boundaryData || {}
-var binaryMapper = binaryMapper || {}
-
+// var binaryMapper = binaryMapper || {}
+var myLog = []
+var binaryMapper = function binaryMapper(a, b) {
+    myLog.push(a,b)
+    return .5 < a ? {
+        r: 0,
+        g: 0,
+        b: 0,
+        a: b.range.alpha
+    } : {
+        r: 1,
+        g: 1,
+        b: 1,
+        a: 1
+    }
+}
 
 papaya.data.Atlases = papaya.data.Atlases || {};
 papaya.data.Atlases["vPaxinos"] = {
@@ -428,9 +442,8 @@ papaya.data.Atlases["vPaxinos"] = {
             max: 0,
             alpha: 0.3
         },
-        // boundaryimagefile: 'Paxinos Boundaries',
-        // boundarysurfacefile: 'Paxinos Surface Boundaries',
-        boundarysurfacefile: 'v4 surface shape',
+        boundaryimagefile: 'Paxinos Boundaries',
+        boundarysurfacefile: 'Paxinos Surface Boundaries',
         data: null,
     }
 };
@@ -439,7 +452,8 @@ papaya.data.Atlases["v4"] = {
     labels: {
         atlas: {
             data: {
-                label: [{ index: 0, content: ": :background :" }, { index: 1, content: ": :1-ACC : anterior cingulate cortex" }, { index: 2, content: ": :2-MedV1 : medial primary visual and MT/MST" }, { index: 3, content: ": :3-HighVisC : high-level 3" }, { index: 4, content: ": :4-ACC : anterior cingulate cortex" }, { index: 5, content: ": :5-MedV1 : medial primary visual and MT/MST" }, { index: 6, content: ": :6-LatV1 : lateral primary visual and MT/MST" }, { index: 7, content: ": :7-MedV1 : medial primary visual and MT/MST" },
+                label: [
+                { index: 0, content: ": :background :" }, { index: 1, content: ": :1-ACC : anterior cingulate cortex" }, { index: 2, content: ": :2-MedV1 : medial primary visual and MT/MST" }, { index: 3, content: ": :3-HighVisC : high-level 3" }, { index: 4, content: ": :4-ACC : anterior cingulate cortex" }, { index: 5, content: ": :5-MedV1 : medial primary visual and MT/MST" }, { index: 6, content: ": :6-LatV1 : lateral primary visual and MT/MST" }, { index: 7, content: ": :7-MedV1 : medial primary visual and MT/MST" },
                 { index: 8, content: ": :8-MedV1 : medial primary visual and MT/MST" }, { index: 9, content: ": :9-HighVisA : high-level 1" }, { index: 10, content: ": :10-DorSoma : dorsal somatomotor" }, { index: 11, content: ": :11-OFC : orbital frontal" }, { index: 12, content: ": :12-ACC : anterior cingulate cortex" }, { index: 13, content: ": :13-HighVisB : high-level 2" }, { index: 14, content: ": :14-MedV1 : medial primary visual and MT/MST" }, { index: 15, content: ": :15-LatV1 : lateral primary visual and MT/MST" }, { index: 16, content: ": :16-MedV1 : medial primary visual and MT/MST" },
                 { index: 17, content: ": :17-MedV1 : medial primary visual and MT/MST" }, { index: 18, content: ": :18-FPN : frontoparietal-like network" }, { index: 19, content: ": :19-AudIns : auditory and insular cortex" }, { index: 20, content: ": :20-LatV1 : lateral primary visual and MT/MST" }, { index: 21, content: ": :21-FPN : frontoparietal-like network" }, { index: 22, content: ": :22-ParapHipp : the parahippocampus/temporal pole" }, { index: 23, content: ": :23-ParapHipp : the parahippocampus/temporal pole" }, { index: 24, content: ": :24-ParapHipp : the parahippocampus/temporal pole" },
                 { index: 25, content: ": :25-HighVisB : high-level 2" }, { index: 26, content: ": :26-HighVisC : high-level 3" }, { index: 27, content: ": :27-ForPole : frontal pole" }, { index: 28, content: ": :28-DorSoma : dorsal somatomotor" }, { index: 29, content: ": :29-DorSoma : dorsal somatomotor" }, { index: 30, content: ": :30-FPN : frontoparietal-like network" }, { index: 31, content: ": :31-ForPole : frontal pole" }, { index: 32, content: ": :32-OFC : orbital frontal" }, { index: 33, content: ": :33-AudIns : auditory and insular cortex" }, { index: 34, content: ": :34-Premotor : premotor" },
@@ -455,7 +469,8 @@ papaya.data.Atlases["v4"] = {
                 { index: 153, content: ": :Thal : Thalamus" }, { index: 154, content: ": :ZI : Zonaincerta" }, { index: 155, content: ": :Sth : Subthalamus" }, { index: 156, content: ": :MGN : Medialgeniculatenucleus" }, { index: 157, content: ": :LGN : Lateralgeniculatenucleus" }, { index: 158, content: ": :Cd : Caudate" }, { index: 159, content: ": :Pu : Putamen" }, { index: 160, content: ": :Acb : Acumbens" }, { index: 161, content: ": :Cl : Claustrumandendopirformclaustrum" }, { index: 162, content: ": :Hypo : Hypothalamus" }, { index: 163, content: ": :Sep : Septum" }, {
                     index: 164,
                     content: ": :GP : Globuspallidus"
-                }, { index: 165, content: ": :IC : Inferiorcolliculus" }, { index: 166, content: ": :SC : Superiorcolliculus" }, { index: 167, content: ": :SNR : Substantianigra" }, { index: 168, content: ": :PAG : Periaqueductalgray" }, { index: 169, content: ": :HB : habenularnuclei" }, { index: 170, content: ": :CeB : Cerebellum" }]
+                    }, { index: 165, content: ": :IC : Inferiorcolliculus" }, { index: 166, content: ": :SC : Superiorcolliculus" }, { index: 167, content: ": :SNR : Substantianigra" }, { index: 168, content: ": :PAG : Periaqueductalgray" }, { index: 169, content: ": :HB : habenularnuclei" }, { index: 170, content: ": :CeB : Cerebellum" }
+                ]
             },
             header: {
                 images: { summaryimagefile: "v4_atlas" },
@@ -469,11 +484,13 @@ papaya.data.Atlases["v4"] = {
         mapper: binaryMapper,
         range: {
             min: 0,
-            max: 0,
+            max: 96,
             alpha: 0.3
         },
         boundaryimagefile: 'Paxinos Boundaries',
         boundarysurfacefile: 'Paxinos Surface Boundaries',
+        // boundarysurfacefile: 'v4 surface shape',
+        // boundarysurfacefile: 'v4 surface shape',
         data: null,
     }
 }
@@ -520,10 +537,54 @@ papaya.data.Atlases['vH'] = {
         },
         boundaryimagefile: 'Paxinos Boundaries',
         boundarysurfacefile: 'Paxinos Surface Boundaries',
+        // boundarysurfacefile: 'v4 surface shape',
+        // boundarysurfacefile: 'v4 surface shape',
         data: null,
     }
 }
 
+
+papaya.data.Atlases['vNetwork'] = {
+    labels: {
+        atlas: {
+            data: {
+                label: [
+                    { index: 1, content: "ventral somatomotor"},
+                    { index: 2, content: "dorsal somatomotor"},
+                    { index: 3, content: "frontal pole"},
+                    { index: 4, content: "the parahippocampus/temporal pole"},
+                    { index: 5, content: "orbital frontal"},
+                    { index: 6, content: "auditory and insular cortex (salience-related)"},
+                    { index: 7, content: "frontoparietal-like network"},
+                    { index: 8, content: "default-mode-like network"},
+                    { index: 9, content: "visual-related network: medial primary visual and MT/MST"},
+                    { index: 10, content: "visual-related network: lateral primary visual and MT/MST"},
+                    { index: 11, content: "visual-related network: high-level 1"},
+                    { index: 12, content: "visual-related network: high-level 2"},
+                    { index: 13, content: "visual-related network: high-level 3"},
+                    { index: 14, content: "anterior cingulate cortex (salience-related)"},
+                    { index: 15, content: "premotor"},
+                ]
+            },
+            header: {
+                images: { summaryimagefile: "v4_network" },
+                name: "Atlas V4 networks parcellation",
+                type: "Label"
+            }, version: 2
+        }
+    },
+    boundaryData: {
+        mapper: binaryMapper,
+        range: {
+            min: 0,
+            max: 0,
+            alpha: 0.3
+        },
+        boundaryimagefile: 'Paxinos Boundaries',
+        boundarysurfacefile: 'Paxinos Surface Boundaries',
+        data: null,
+    }
+}
 
 
 
@@ -538,7 +599,7 @@ var papayaLoadableImages = [
     { //1
         name: "atlas_MBM_cortex_vPaxinos_both_same",
         nicename: "atlas_MBM_cortex_vPaxinos_both_same",
-        url: "data/atlas_MBM_cortex_vPaxinos_both_same.nii.gz",
+        url: "data/atlas_MBM_cortex_vPaxinos_right.nii.gz",
         hide: true
     },
     { //2
@@ -582,13 +643,13 @@ var papayaLoadableImages = [
     { //8
         name: 'v4_atlas',
         nicename: "v4_atlas",
-        url: "data" + '/atlas_MBMv4_cortex_parcellation_both_same.nii.gz',
+        url: "data" + '/atlas_MBMv4_cortex_parcellation_right.nii.gz',
         hide: true
     },
     { //9
         name: 'vH_atlas',
         nicename: "vH_atlas",
-        url: "data" + '/atlas_MBM_cortex_vH_both_same.nii.gz',
+        url: "data" + '/atlas_MBM_cortex_vH_right.nii.gz',
         hide: true
     },
     { //10
@@ -614,7 +675,12 @@ var papayaLoadableImages = [
         nicename: "v4 surface shape",
         url: "data" + '/surfFS.rh.MBMv4_cortex_parcellation.R.func.gii',
         surface: true,
-    }
+    },
+    { //14 network
+        name: 'v4_network',
+        nicename: "v4 network",
+        url: "data" + '/atlas_MBMv4_networks_parcellation.nii.gz',
+    },
 ];
 
 
@@ -637,6 +703,9 @@ switch (atlas) {
         params["images"] = ['data/template_myelinmap_brain.nii.gz', papayaLoadableImages[9].url];
         params["atlas"] = papayaLoadableImages[9].url;
         break;
+    case "vNetwork":
+        params["images"] = ['data/template_myelinmap_brain.nii.gz', papayaLoadableImages[14].url];
+        params["atlas"] = papayaLoadableImages[14].url;
 
     default:
         break;
@@ -797,17 +866,22 @@ params["luts"] = [
         ],
     },
 ];
-params["atlas_MBM_cortex_vPaxinos_both_same.nii.gz"] = {
+params["atlas_MBM_cortex_vPaxinos_right.nii.gz"] = {
     min: 0,
     max: 259,
     lut: "Custom",
 };
-params['atlas_MBMv4_cortex_parcellation_both_same.nii.gz'] = {
+params['atlas_MBMv4_cortex_parcellation_right.nii.gz'] = {
     min: 0,
     max: 259,
     lut: "Custom",
 };
-params['atlas_MBM_cortex_vH_both_same.nii.gz'] = {
+params['atlas_MBM_cortex_vH_right.nii.gz'] = {
+    min: 0,
+    max: 259,
+    lut: "Custom",
+};
+params['atlas_MBMv4_networks_parcellation.nii.gz'] = {
     min: 0,
     max: 259,
     lut: "Custom",
