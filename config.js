@@ -6,6 +6,7 @@ let core_data = "core_data"
 
 
 papaya.data.configureAtlas = async function (viewer) {
+    console.log('configureAtlas')
     if (this.atlas === null) {
         return;
     }
@@ -84,6 +85,8 @@ papaya.data.configureAtlas = async function (viewer) {
             viewer.drawViewer();
         }
     }
+
+    drawColor2Surface()
 }
 
 function loadatlas(url, boundaryData) {
@@ -437,23 +440,39 @@ papaya.data.Atlases["v4"] = {
         atlas: {
             data: {
                 label: [
-                { index: 0, content: ": :background :" }, { index: 1, content: ": :1-ACC : anterior cingulate cortex" }, { index: 2, content: ": :2-MedV1 : medial primary visual and MT/MST" }, { index: 3, content: ": :3-HighVisC : high-level 3" }, { index: 4, content: ": :4-ACC : anterior cingulate cortex" }, { index: 5, content: ": :5-MedV1 : medial primary visual and MT/MST" }, { index: 6, content: ": :6-LatV1 : lateral primary visual and MT/MST" }, { index: 7, content: ": :7-MedV1 : medial primary visual and MT/MST" },
-                { index: 8, content: ": :8-MedV1 : medial primary visual and MT/MST" }, { index: 9, content: ": :9-HighVisA : high-level 1" }, { index: 10, content: ": :10-DorSoma : dorsal somatomotor" }, { index: 11, content: ": :11-OFC : orbital frontal" }, { index: 12, content: ": :12-ACC : anterior cingulate cortex" }, { index: 13, content: ": :13-HighVisB : high-level 2" }, { index: 14, content: ": :14-MedV1 : medial primary visual and MT/MST" }, { index: 15, content: ": :15-LatV1 : lateral primary visual and MT/MST" }, { index: 16, content: ": :16-MedV1 : medial primary visual and MT/MST" },
-                { index: 17, content: ": :17-MedV1 : medial primary visual and MT/MST" }, { index: 18, content: ": :18-FPN : frontoparietal-like network" }, { index: 19, content: ": :19-AudIns : auditory and insular cortex" }, { index: 20, content: ": :20-LatV1 : lateral primary visual and MT/MST" }, { index: 21, content: ": :21-FPN : frontoparietal-like network" }, { index: 22, content: ": :22-ParapHipp : the parahippocampus/temporal pole" }, { index: 23, content: ": :23-ParapHipp : the parahippocampus/temporal pole" }, { index: 24, content: ": :24-ParapHipp : the parahippocampus/temporal pole" },
-                { index: 25, content: ": :25-HighVisB : high-level 2" }, { index: 26, content: ": :26-HighVisC : high-level 3" }, { index: 27, content: ": :27-ForPole : frontal pole" }, { index: 28, content: ": :28-DorSoma : dorsal somatomotor" }, { index: 29, content: ": :29-DorSoma : dorsal somatomotor" }, { index: 30, content: ": :30-FPN : frontoparietal-like network" }, { index: 31, content: ": :31-ForPole : frontal pole" }, { index: 32, content: ": :32-OFC : orbital frontal" }, { index: 33, content: ": :33-AudIns : auditory and insular cortex" }, { index: 34, content: ": :34-Premotor : premotor" },
-                { index: 35, content: ": :35-FPN : frontoparietal-like network" }, { index: 36, content: ": :36-ParapHipp : the parahippocampus/temporal pole" }, { index: 37, content: ": :37-VenSoma : ventral somatomotor" }, { index: 38, content: ": :38-ForPole : frontal pole" }, { index: 39, content: ": :39-DorSoma : dorsal somatomotor" }, { index: 40, content: ": :40-DMN : default-mode-like network" }, { index: 41, content: ": :41-ParapHipp : the parahippocampus/temporal pole" }, { index: 42, content: ": :42-FPN : frontoparietal-like network" }, { index: 43, content: ": :43-MedV1 : medial primary visual and MT/MST" },
-                { index: 44, content: ": :44-OFC : orbital frontal" }, { index: 45, content: ": :45-Premotor : premotor" }, { index: 46, content: ": :46-AudIns : auditory and insular cortex" }, { index: 47, content: ": :47-ForPole : frontal pole" }, { index: 48, content: ": :48-HighVisA : high-level 1" }, { index: 49, content: ": :49-HighVisB : high-level 2" }, { index: 50, content: ": :50-HighVisC : high-level 3" }, { index: 51, content: ": :51-HighVisC : high-level 3" }, { index: 52, content: ": :52-ParapHipp : the parahippocampus/temporal pole" }, { index: 53, content: ": :53-ParapHipp : the parahippocampus/temporal pole" },
-                { index: 54, content: ": :54-ParapHipp : the parahippocampus/temporal pole" }, { index: 55, content: ": :55-HighVisB : high-level 2" }, { index: 56, content: ": :56-ParapHipp : the parahippocampus/temporal pole" }, { index: 57, content: ": :57-OFC : orbital frontal" }, { index: 58, content: ": :58-FPN : frontoparietal-like network" }, { index: 59, content: ": :59-AudIns : auditory and insular cortex" }, { index: 60, content: ": :60-OFC : orbital frontal" }, { index: 61, content: ": :61-VenSoma : ventral somatomotor" }, { index: 62, content: ": :62-DMN : default-mode-like network" },
-                { index: 63, content: ": :63-AudIns : auditory and insular cortex" }, { index: 64, content: ": :64-VenSoma : ventral somatomotor" }, { index: 65, content: ": :65-MedV1 : medial primary visual and MT/MST" }, { index: 66, content: ": :66-Premotor : premotor" }, { index: 67, content: ": :67-FPN : frontoparietal-like network" }, { index: 68, content: ": :68-ParapHipp : the parahippocampus/temporal pole" }, { index: 69, content: ": :69-DMN : default-mode-like network" }, { index: 70, content: ": :70-LatV1 : lateral primary visual and MT/MST" }, {
-                    index: 71,
-                    content: ": :71-ACC : anterior cingulate cortex"
-                }, { index: 72, content: ": :72-Premotor : premotor" }, { index: 73, content: ": :73-FPN : frontoparietal-like network" }, { index: 74, content: ": :74-DMN : default-mode-like network" }, { index: 75, content: ": :75-DMN : default-mode-like network" }, { index: 76, content: ": :76-ACC : anterior cingulate cortex" }, { index: 77, content: ": :77-MedV1 : medial primary visual and MT/MST" }, { index: 78, content: ": :78-ParapHipp : the parahippocampus/temporal pole" }, { index: 79, content: ": :79-AudIns : auditory and insular cortex" },
-                { index: 80, content: ": :80-MedV1 : medial primary visual and MT/MST" }, { index: 81, content: ": :81-HighVisC : high-level 3" }, { index: 82, content: ": :82-HighVisB : high-level 2" }, { index: 83, content: ": :83-AudIns : auditory and insular cortex" }, { index: 84, content: ": :84-MedV1 : medial primary visual and MT/MST" }, { index: 85, content: ": :85-HighVisB : high-level 2" }, { index: 86, content: ": :86-HighVisA : high-level 1" }, { index: 87, content: ": :87-DMN : default-mode-like network" }, { index: 88, content: ": :88-ACC : anterior cingulate cortex" },
-                { index: 89, content: ": :89-DMN : default-mode-like network" }, { index: 90, content: ": :90-HighVisA : high-level 1" }, { index: 91, content: ": :91-OFC : orbital frontal" }, { index: 92, content: ": :92-DorSoma : dorsal somatomotor" }, { index: 93, content: ": :93-OFC : orbital frontal" }, { index: 94, content: ": :94-OFC : orbital frontal" }, { index: 95, content: ": :95-HighVisC : high-level 3" }, { index: 96, content: ": :96-HighVisA : high-level 1" }, { index: 151, content: ": :HipF : Hippocampalformation" }, { index: 152, content: ": :Amy : Amygdala" },
-                { index: 153, content: ": :Thal : Thalamus" }, { index: 154, content: ": :ZI : Zonaincerta" }, { index: 155, content: ": :Sth : Subthalamus" }, { index: 156, content: ": :MGN : Medialgeniculatenucleus" }, { index: 157, content: ": :LGN : Lateralgeniculatenucleus" }, { index: 158, content: ": :Cd : Caudate" }, { index: 159, content: ": :Pu : Putamen" }, { index: 160, content: ": :Acb : Acumbens" }, { index: 161, content: ": :Cl : Claustrumandendopirformclaustrum" }, { index: 162, content: ": :Hypo : Hypothalamus" }, { index: 163, content: ": :Sep : Septum" }, {
-                    index: 164,
-                    content: ": :GP : Globuspallidus"
-                    }, { index: 165, content: ": :IC : Inferiorcolliculus" }, { index: 166, content: ": :SC : Superiorcolliculus" }, { index: 167, content: ": :SNR : Substantianigra" }, { index: 168, content: ": :PAG : Periaqueductalgray" }, { index: 169, content: ": :HB : habenularnuclei" }, { index: 170, content: ": :CeB : Cerebellum" }
+                    { index: 0, content: ": :background :" }, { index: 1, content: ": :1-ACC : anterior cingulate cortex" }, { index: 2, content: ": :2-MedV1 : medial primary visual MT-MST" }, { index: 3, content: ": :3-HighVisC : high-level 3" }, { index: 4, content: ": :4-ACC : anterior cingulate cortex" }, { index: 5, content: ": :5-MedV1 : medial primary visual MT-MST" }, { index: 6, content: ": :6-LatV1 : lateral primary visual MT-MST" }, { index: 7, content: ": :7-MedV1 : medial primary visual MT-MST" },
+                    { index: 8, content: ": :8-MedV1 : medial primary visual MT-MST" }, { index: 9, content: ": :9-HighVisA : high-level 1" }, { index: 10, content: ": :10-DorSoma : dorsal somatomotor" }, { index: 11, content: ": :11-OFC : orbital frontal" }, { index: 12, content: ": :12-ACC : anterior cingulate cortex" }, { index: 13, content: ": :13-HighVisB : high-level 2" }, { index: 14, content: ": :14-MedV1 : medial primary visual MT-MST" }, { index: 15, content: ": :15-LatV1 : lateral primary visual MT-MST" }, { index: 16, content: ": :16-MedV1 : medial primary visual MT-MST" },
+                    { index: 17, content: ": :17-MedV1 : medial primary visual MT-MST" }, { index: 18, content: ": :18-FPN : frontoparietal-like network" }, { index: 19, content: ": :19-AudIns : auditory and insular cortex" }, { index: 20, content: ": :20-LatV1 : lateral primary visual MT-MST" }, { index: 21, content: ": :21-FPN : frontoparietal-like network" }, { index: 22, content: ": :22-ParapHipp : the parahippocampus/temporal pole" }, { index: 23, content: ": :23-ParapHipp : the parahippocampus/temporal pole" }, { index: 24, content: ": :24-ParapHipp : the parahippocampus/temporal pole" },
+                    { index: 25, content: ": :25-HighVisB : high-level 2" }, { index: 26, content: ": :26-HighVisC : high-level 3" }, { index: 27, content: ": :27-ForPole : frontal pole" }, { index: 28, content: ": :28-DorSoma : dorsal somatomotor" }, { index: 29, content: ": :29-DorSoma : dorsal somatomotor" }, { index: 30, content: ": :30-FPN : frontoparietal-like network" }, { index: 31, content: ": :31-ForPole : frontal pole" }, { index: 32, content: ": :32-OFC : orbital frontal" }, { index: 33, content: ": :33-AudIns : auditory and insular cortex" }, { index: 34, content: ": :34-Premotor : premotor" },
+                    { index: 35, content: ": :35-FPN : frontoparietal-like network" }, { index: 36, content: ": :36-ParapHipp : the parahippocampus/temporal pole" }, { index: 37, content: ": :37-VenSoma : ventral somatomotor" }, { index: 38, content: ": :38-ForPole : frontal pole" }, { index: 39, content: ": :39-DorSoma : dorsal somatomotor" }, { index: 40, content: ": :40-DMN : default-mode-like network" }, { index: 41, content: ": :41-ParapHipp : the parahippocampus/temporal pole" }, { index: 42, content: ": :42-FPN : frontoparietal-like network" }, { index: 43, content: ": :43-MedV1 : medial primary visual MT-MST" },
+                    { index: 44, content: ": :44-OFC : orbital frontal" }, { index: 45, content: ": :45-Premotor : premotor" }, { index: 46, content: ": :46-AudIns : auditory and insular cortex" }, { index: 47, content: ": :47-ForPole : frontal pole" }, { index: 48, content: ": :48-HighVisA : high-level 1" }, { index: 49, content: ": :49-HighVisB : high-level 2" }, { index: 50, content: ": :50-HighVisC : high-level 3" }, { index: 51, content: ": :51-HighVisC : high-level 3" }, { index: 52, content: ": :52-ParapHipp : the parahippocampus/temporal pole" }, { index: 53, content: ": :53-ParapHipp : the parahippocampus/temporal pole" },
+                    { index: 54, content: ": :54-ParapHipp : the parahippocampus/temporal pole" }, { index: 55, content: ": :55-HighVisB : high-level 2" }, { index: 56, content: ": :56-ParapHipp : the parahippocampus/temporal pole" }, { index: 57, content: ": :57-OFC : orbital frontal" }, { index: 58, content: ": :58-FPN : frontoparietal-like network" }, { index: 59, content: ": :59-AudIns : auditory and insular cortex" }, { index: 60, content: ": :60-OFC : orbital frontal" }, { index: 61, content: ": :61-VenSoma : ventral somatomotor" }, { index: 62, content: ": :62-DMN : default-mode-like network" },
+                    { index: 63, content: ": :63-AudIns : auditory and insular cortex" }, { index: 64, content: ": :64-VenSoma : ventral somatomotor" }, { index: 65, content: ": :65-MedV1 : medial primary visual MT-MST" }, { index: 66, content: ": :66-Premotor : premotor" }, { index: 67, content: ": :67-FPN : frontoparietal-like network" }, { index: 68, content: ": :68-ParapHipp : the parahippocampus/temporal pole" }, { index: 69, content: ": :69-DMN : default-mode-like network" }, { index: 70, content: ": :70-LatV1 : lateral primary visual MT-MST" }, {
+                        index: 71,
+                        content: ": :71-ACC : anterior cingulate cortex"
+                    }, { index: 72, content: ": :72-Premotor : premotor" }, { index: 73, content: ": :73-FPN : frontoparietal-like network" }, { index: 74, content: ": :74-DMN : default-mode-like network" }, { index: 75, content: ": :75-DMN : default-mode-like network" }, { index: 76, content: ": :76-ACC : anterior cingulate cortex" }, { index: 77, content: ": :77-MedV1 : medial primary visual MT-MST" }, { index: 78, content: ": :78-ParapHipp : the parahippocampus/temporal pole" }, { index: 79, content: ": :79-AudIns : auditory and insular cortex" },
+                    { index: 80, content: ": :80-MedV1 : medial primary visual MT-MST" }, { index: 81, content: ": :81-HighVisC : high-level 3" }, { index: 82, content: ": :82-HighVisB : high-level 2" }, { index: 83, content: ": :83-AudIns : auditory and insular cortex" }, { index: 84, content: ": :84-MedV1 : medial primary visual MT-MST" }, { index: 85, content: ": :85-HighVisB : high-level 2" }, { index: 86, content: ": :86-HighVisA : high-level 1" }, { index: 87, content: ": :87-DMN : default-mode-like network" }, { index: 88, content: ": :88-ACC : anterior cingulate cortex" },
+                    { index: 89, content: ": :89-DMN : default-mode-like network" }, { index: 90, content: ": :90-HighVisA : high-level 1" }, { index: 91, content: ": :91-OFC : orbital frontal" }, { index: 92, content: ": :92-DorSoma : dorsal somatomotor" }, { index: 93, content: ": :93-OFC : orbital frontal" }, { index: 94, content: ": :94-OFC : orbital frontal" }, { index: 95, content: ": :95-HighVisC : high-level 3" }, { index: 96, content: ": :96-HighVisA : high-level 1" }, { index: 151, content: ": :HipF : Hippocampalformation" }, { index: 152, content: ": :Amy : Amygdala" },
+                    { index: 153, content: ": :Thal : Thalamus" }, { index: 154, content: ": :ZI : Zonaincerta" }, { index: 155, content: ": :Sth : Subthalamus" }, { index: 156, content: ": :MGN : Medialgeniculatenucleus" }, { index: 157, content: ": :LGN : Lateralgeniculatenucleus" }, { index: 158, content: ": :Cd : Caudate" }, { index: 159, content: ": :Pu : Putamen" }, { index: 160, content: ": :Acb : Acumbens" }, { index: 161, content: ": :Cl : Claustrumandendopirformclaustrum" }, { index: 162, content: ": :Hypo : Hypothalamus" }, { index: 163, content: ": :Sep : Septum" }, {
+                        index: 164,
+                        content: ": :GP : Globuspallidus"
+                    }, { index: 165, content: ": :IC : Inferiorcolliculus" }, { index: 166, content: ": :SC : Superiorcolliculus" }, { index: 167, content: ": :SNR : Substantianigra" }, { index: 168, content: ": :PAG : Periaqueductalgray" }, { index: 169, content: ": :HB : habenularnuclei" }, { index: 170, content: ": :CeB : Cerebellum" },
+                    { index: 101, content: "VenSoma:ventral somatomotor" },
+                    { index: 102, content: "DorSoma:dorsal somatomotor" },
+                    { index: 103, content: "ForPole:frontal pole" },
+                    { index: 104, content: "ParapHipp:the parahippocampus/temporal pole" },
+                    { index: 105, content: "OFC:orbital frontal" },
+                    { index: 106, content: "AudIns:salience-related auditory and insular " },
+                    { index: 107, content: "FPN:frontoparietal-like network" },
+                    { index: 108, content: "DMN:default-mode-like network" },
+                    { index: 109, content: "MedV1: visual-related  MedV1" },
+                    { index: 110, content: "LatV1: visual-related  LatV1" },
+                    { index: 111, content: "HighVisA:visual-related high-level A" },
+                    { index: 112, content: "HighVisB:visual-related high-level B" },
+                    { index: 113, content: "HighVisC:visual-related high-level C" },
+                    { index: 114, content: "ACC:salience-related anterior cingulate cortex " },
+                    { index: 115, content: "Premotor:premotor" },
+
                 ]
             },
             header: {
@@ -527,21 +546,21 @@ papaya.data.Atlases['vNetwork'] = {
         atlas: {
             data: {
                 label: [
-                    { index: 1, content: "ventral somatomotor"},
-                    { index: 2, content: "dorsal somatomotor"},
-                    { index: 3, content: "frontal pole"},
-                    { index: 4, content: "the parahippocampus/temporal pole"},
-                    { index: 5, content: "orbital frontal"},
-                    { index: 6, content: "auditory and insular cortex (salience-related)"},
-                    { index: 7, content: "frontoparietal-like network"},
-                    { index: 8, content: "default-mode-like network"},
-                    { index: 9, content: "visual-related network: medial primary visual and MT/MST"},
-                    { index: 10, content: "visual-related network: lateral primary visual and MT/MST"},
-                    { index: 11, content: "visual-related network: high-level 1"},
-                    { index: 12, content: "visual-related network: high-level 2"},
-                    { index: 13, content: "visual-related network: high-level 3"},
-                    { index: 14, content: "anterior cingulate cortex (salience-related)"},
-                    { index: 15, content: "premotor"},
+                    { index: 1, content: "VenSoma:ventral somatomotor" },
+                    { index: 2, content: "DorSoma:dorsal somatomotor" },
+                    { index: 3, content: "ForPole:frontal pole" },
+                    { index: 4, content: "ParapHipp:the parahippocampus/temporal pole" },
+                    { index: 5, content: "OFC:orbital frontal" },
+                    { index: 6, content: "AudIns:salience-related auditory and insular " },
+                    { index: 7, content: "FPN:frontoparietal-like network" },
+                    { index: 8, content: "DMN:default-mode-like network" },
+                    { index: 9, content: "MedV1: visual-related  MedV1" },
+                    { index: 10, content: "LatV1: visual-related  LatV1" },
+                    { index: 11, content: "HighVisA:visual-related high-level A" },
+                    { index: 12, content: "HighVisB:visual-related high-level B" },
+                    { index: 13, content: "HighVisC:visual-related high-level C" },
+                    { index: 14, content: "ACC:salience-related anterior cingulate cortex " },
+                    { index: 15, content: "Premotor:premotor" },
                 ]
             },
             header: {
@@ -564,20 +583,164 @@ papaya.data.Atlases['vNetwork'] = {
     }
 }
 
+papaya.data.Atlases['v2_H'] = {
+    labels: {
+        atlas: {
+            data: {
+                label: [{ index: 1, content: "cc[corpus_callosum]: : :" }, { index: 2, content: "fminor-p[forceps_minor]: : :" }, { index: 3, content: "fmajor-p[forceps_major]: : :" }, { index: 4, content: "tap-p[tapetum]: : :" }, { index: 5, content: "finfer[inferior_forceps]: : :" }, { index: 6, content: "ac[anterior_commissure]: : :" }, { index: 7, content: "pc[posterior_commissure]: : :" }, { index: 8, content: "csc[commissure_of_superior_colliculus]: : :" }, { index: 9, content: "cic[commissure_of_inferior_colliculus]: : :" },
+                { index: 10, content: "hbc[habenular_commissure]: : :" }, { index: 11, content: "ica[anterior_limb_of_internal_capsule]: : :" }, { index: 12, content: "icp[posterior_limb_of_internal_capsule]: : :" }, { index: 13, content: "cp[cerebral_peduncle]: : :" }, { index: 14, content: "lfp[longitudinal_pontine_fasciculus]: : :" }, { index: 15, content: "py[pyramidal_tract]: : :" }, { index: 16, content: "ec[external_capsule]: : :" }, { index: 17, content: "ex[extreme_capsule]: : :" }, { index: 18, content: "ilf[inferior_longitudinal_fasciculus]: : :" }, {
+                    index: 19,
+                    content: "slf[superior_longitudinal_fasciculus]: : :"
+                }, { index: 20, content: "mdlf-stg[middle_longitudinal_fasciculus_in_STG]: : :" }, { index: 21, content: "mdlf-ext[middle_longitudinal_fasciculus_from_STG_to_parietal]: : :" }, { index: 22, content: "aum[fibers_connect_auditory_cortex_with_MGN]: : :" }, { index: 23, content: "f[body_of_fornix]: : :" }, { index: 24, content: "f[body_of_fornix]: : :" }, { index: 25, content: "fi[fimbra]: : :" }, { index: 26, content: "fi[fimbra]:finfer[inferior_forceps]: : :" }, { index: 27, content: "vhc[ventral_hippocampal_commissure]: : :" },
+                { index: 28, content: "fa[anterior_pillars_of_the_fornix]: : :" }, { index: 29, content: "alv[alveus]: : :" }, { index: 30, content: "alv[alveus]:tap-p[tapetum]: : :" }, { index: 31, content: "alv[alveus]:finfer[inferior_forceps]: : :" }, { index: 32, content: "af[fibers_around_amygdala]: : :" }, { index: 33, content: "af[fibers_around_amygdala]:ac[anterior_commissure]: : :" }, { index: 34, content: "unc[uncinate_fasciculus]: : :" }, { index: 35, content: "unc[uncinate_fasciculus]:ec[external_capsule]: : :" }, { index: 36, content: "unc[uncinate_fasciculus]:ex[extreme_capsule]: : :" },
+                { index: 37, content: "pcg[parahippocampal_cingulum]: : :" }, { index: 38, content: "pcg[parahippocampal_cingulum]:finfer[inferior_forceps]: : :" }, { index: 39, content: "scg[superior_cinglulum]: : :" }, { index: 40, content: "scg[superior_cinglulum]:cc[corpus_callosum]: : :" }, { index: 41, content: "scg[superior_cinglulum]:fminor-p[forceps_minor]: : :" }, { index: 42, content: "scg[superior_cinglulum]:fmajor-p[forceps_major]: : :" }, { index: 43, content: "scg[superior_cinglulum]:tap-p[tapetum]: : :" }, { index: 44, content: "stb-p[parts_of_striatal_bundle]: : :" },
+                { index: 45, content: "stb-p[parts_of_striatal_bundle]:ec[external_capsule]: : :" }, { index: 46, content: "iml[internal_medullary_lamina_of_thalamus]: : :" }, { index: 47, content: "eml[external_medullary_lamina_of_thalamus]: : :" }, { index: 48, content: "eml[external_medullary_lamina_of_thalamus]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 49, content: "eml[external_medullary_lamina_of_thalamus]:aum[fibers_connect_auditory_cortex_with_MGN]: : :" }, { index: 50, content: "lml[lateral_medullary_lamina_of_globus_pallidum]: : :" },
+                { index: 51, content: "lml[lateral_medullary_lamina_of_globus_pallidum]:ica[anterior_limb_of_internal_capsule]: : :" }, { index: 52, content: "lml[lateral_medullary_lamina_of_globus_pallidum]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 53, content: "mml[medial_medullary_lamina_of_globus_pallidum]: : :" }, { index: 54, content: "h1[H1_thalamic_fasciculus]: : :" }, { index: 55, content: "h2[H2_lenticular_fasciculus]: : :" }, { index: 56, content: "mtt[mammillothalamic_tract]: : :" }, { index: 57, content: "st[stria_terminalis]: : :" },
+                { index: 58, content: "sm[stria_medullaris]: : :" }, { index: 59, content: "hi[habenulointerpeduncular_tract]: : :" }, { index: 60, content: "mb[muratoff_bundle]: : :" }, { index: 61, content: "mb[muratoff_bundle]:tap-p[tapetum]: : :" }, { index: 62, content: "tfp[transverse_fibers_of_pons]: : :" }, { index: 63, content: "mcp[middle_cerebellar_peduncle]: : :" }, { index: 64, content: "icp[inferior_cerebellar_peduncle]: : :" }, { index: 65, content: "sp5[spinal_trigeminal_tract]: : :" }, { index: 66, content: "oc[olivocerebellar_tract]: : :" }, {
+                    index: 67,
+                    content: "scp[superior_cerebellar_peduncle]: : :"
+                }, { index: 68, content: "vsc[ventral_spinocerebellar_tract]: : :" }, { index: 69, content: "tz[trapezoid_body]: : :" }, { index: 70, content: "xscp[decussation_of_superior_cerebellar_peduncle]: : :" }, { index: 71, content: "mlf[medial_longitudinal_fasciculus]: : :" }, { index: 72, content: "ml[medial_lemniscus]: : :" }, { index: 73, content: "ll[lateral_lemniscus]: : :" }, { index: 74, content: "8n: : :" }, { index: 75, content: "5n: : :" }, { index: 76, content: "6n: : :" }, { index: 77, content: "7n: : :" },
+                { index: 78, content: "bsc[branchium_of_superior_colliculus]: : :" }, { index: 79, content: "bic[branchium_of_inferior_colliculus]: : :" }, { index: 80, content: "sn[striatonigral_fibers]: : :" }, { index: 81, content: "sn[striatonigral_fibers]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 82, content: "puf[putamen_fibers]: : :" }, { index: 83, content: "ffc[fibers_in_frontal_pole]: : :" }, { index: 84, content: "ffc[fibers_in_frontal_pole]:fminor-p[forceps_minor]: : :" }, { index: 85, content: "cr[corona_radiata]: : :" }, {
+                    index: 86,
+                    content: "cr[corona_radiata]:cc[corpus_callosum]: : :"
+                }, { index: 87, content: "cr[corona_radiata]:fminor-p[forceps_minor]: : :" }, { index: 88, content: "cr[corona_radiata]:tap-p[tapetum]: : :" }, { index: 89, content: "cr[corona_radiata]:ica[anterior_limb_of_internal_capsule]: : :" }, { index: 90, content: "cr[corona_radiata]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 91, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 92, content: "cr[corona_radiata]:fof[occipitofrontal_fasciculus]: : :" },
+                { index: 93, content: "cr[corona_radiata]:mdlf-ext[middle_longitudinal_fasciculus_from_STG_to_parietal]: : :" }, { index: 94, content: "cbwm[white_matter_of_cerebellum]: : :" }, { index: 95, content: "mls[medial_longitudinal_striae]:mls[medial_longitudinal_striae]: : :" }, { index: 96, content: "mls[medial_longitudinal_striae]:mls[medial_longitudinal_striae]: : :" }, { index: 97, content: "lls[lateral_longitudinal_striae]: : :" }, { index: 98, content: "lls[lateral_longitudinal_striae]:cc[corpus_callosum]: : :" }, { index: 99, content: "lls[lateral_longitudinal_striae]:fmajor-p[forceps_major]: : :" },
+                { index: 100, content: "opt[optic_tract]: : :" }, { index: 101, content: "opt[optic_tract]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 102, content: "opt[optic_tract]:alv[alveus]: : :" }, { index: 103, content: "lgnf[white_matter_circumvent_LGN]: : :" }, { index: 104, content: "lgnf[white_matter_circumvent_LGN]:aum[fibers_connect_auditory_cortex_with_MGN]: : :" }, { index: 105, content: "lgnf[white_matter_circumvent_LGN]:fi[fimbra]: : :" }, { index: 106, content: "lgnf[white_matter_circumvent_LGN]:eml[external_medullary_lamina_of_thalamus]: : :" },
+                { index: 107, content: "lgnf[white_matter_circumvent_LGN]:aum[fibers_connect_auditory_cortex_with_MGN]:eml[external_medullary_lamina_of_thalamus]: : :" }, { index: 108, content: "lgnf[white_matter_circumvent_LGN]:st[stria_terminalis]: : :" }, { index: 109, content: "lgnf[white_matter_circumvent_LGN]:sn[striatonigral_fibers]: : :" }, { index: 110, content: "ss[sagittal_stratum]: : :" }, { index: 111, content: "ss[sagittal_stratum]:fmajor-p[forceps_major]: : :" }, { index: 112, content: "ss[sagittal_stratum]:tap-p[tapetum]: : :" }, {
+                    index: 113,
+                    content: "ss[sagittal_stratum]:finfer[inferior_forceps]: : :"
+                }, { index: 114, content: "ss[sagittal_stratum]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 115, content: "ss[sagittal_stratum]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 116, content: "ss[sagittal_stratum]:mdlf-stg[middle_longitudinal_fasciculus_in_STG]: : :" }, { index: 117, content: "ss[sagittal_stratum]:mdlf-ext[middle_longitudinal_fasciculus_from_STG_to_parietal]: : :" }, { index: 118, content: "ss[sagittal_stratum]:aum[fibers_connect_auditory_cortex_with_MGN]: : :" },
+                { index: 119, content: "ss[sagittal_stratum]:alv[alveus]: : :" }, { index: 120, content: "ss[sagittal_stratum]:stb-p[parts_of_striatal_bundle]: : :" }, { index: 121, content: "ss[sagittal_stratum]:eml[external_medullary_lamina_of_thalamus]: : :" }, { index: 122, content: "ss[sagittal_stratum]:sn[striatonigral_fibers]: : :" }, { index: 123, content: "ss[sagittal_stratum]:cr[corona_radiata]: : :" }, { index: 124, content: "ss[sagittal_stratum]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 125, content: "strk[stratum_calcarinum]: : :" },
+                { index: 126, content: "strk[stratum_calcarinum]:fmajor-p[forceps_major]: : :" }, { index: 127, content: "strk[stratum_calcarinum]:tap-p[tapetum]: : :" }, { index: 128, content: "strk[stratum_calcarinum]:finfer[inferior_forceps]: : :" }, { index: 129, content: "strk[stratum_calcarinum]:pcg[parahippocampal_cingulum]: : :" }, { index: 130, content: "strk[stratum_calcarinum]:scg[superior_cinglulum]: : :" }, { index: 131, content: "ovf[occipital_vertical_fasciculus]: : :" }, { index: 132, content: "ovf[occipital_vertical_fasciculus]:ilf[inferior_longitudinal_fasciculus]: : :" },
+                { index: 133, content: "ovf[occipital_vertical_fasciculus]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 134, content: "ovf[occipital_vertical_fasciculus]:mdlf-stg[middle_longitudinal_fasciculus_in_STG]: : :" }, { index: 135, content: "ovf[occipital_vertical_fasciculus]:mdlf-ext[middle_longitudinal_fasciculus_from_STG_to_parietal]: : :" }, { index: 136, content: "ovf[occipital_vertical_fasciculus]:pcg[parahippocampal_cingulum]: : :" }, { index: 137, content: "ovf[occipital_vertical_fasciculus]:stb-p[parts_of_striatal_bundle]: : :" },
+                { index: 138, content: "ovf[occipital_vertical_fasciculus]:cr[corona_radiata]: : :" }, { index: 139, content: "ovf[occipital_vertical_fasciculus]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 140, content: "opv[occipital_pole_local_fibers_ventral]: : :" }, { index: 141, content: "opv[occipital_pole_local_fibers_ventral]:ilf[inferior_longitudinal_fasciculus]: : :" }, { index: 142, content: "opd[occipital_pole_local_fibers_dorsal]: : :" }, { index: 143, content: "scm[local_fibers_of_the_callosomarginal_sulcus]: : :" }, {
+                    index: 144,
+                    content: "scm[local_fibers_of_the_callosomarginal_sulcus]:fmajor-p[forceps_major]: : :"
+                }, { index: 145, content: "scm[local_fibers_of_the_callosomarginal_sulcus]:scg[superior_cinglulum]: : :" }, { index: 146, content: "sod[supraoptic_decussation]: : :" }, { index: 147, content: "cr[corona_radiata]: : :" }, { index: 148, content: "cr[corona_radiata]:cc[corpus_callosum]: : :" }, { index: 149, content: "cr[corona_radiata]:fminor-p[forceps_minor]: : :" }, { index: 150, content: "cr[corona_radiata]:scg[superior_cinglulum]: : :" }, {
+                    index: 151,
+                    content: "cr[corona_radiata]:cc[corpus_callosum]:scg[superior_cinglulum]: : :"
+                }, { index: 152, content: "cr[corona_radiata]:mb[muratoff_bundle]: : :" }, { index: 153, content: "cr[corona_radiata]: : :" }, { index: 154, content: "cr[corona_radiata]:cc[corpus_callosum]: : :" }, { index: 155, content: "cr[corona_radiata]:fminor-p[forceps_minor]: : :" }, { index: 156, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 157, content: "cr[corona_radiata]:fof[occipitofrontal_fasciculus]: : :" }, { index: 158, content: "cr[corona_radiata]: : :" },
+                { index: 159, content: "cr[corona_radiata]:ica[anterior_limb_of_internal_capsule]: : :" }, { index: 160, content: "cr[corona_radiata]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 161, content: "cr[corona_radiata]: : :" }, { index: 162, content: "cr[corona_radiata]:ica[anterior_limb_of_internal_capsule]: : :" }, { index: 163, content: "cr[corona_radiata]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 164, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 165, content: "cr[corona_radiata]:fof[occipitofrontal_fasciculus]: : :" },
+                { index: 166, content: "cr[corona_radiata]: : :" }, { index: 167, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 168, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]:scg[superior_cinglulum]: : :" }, { index: 169, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]:ffc[fibers_in_frontal_pole]: : :" }, { index: 170, content: "cr[corona_radiata]: : :" }, { index: 171, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 172, content: "cr[corona_radiata]:mdlf-ext[middle_longitudinal_fasciculus_from_STG_to_parietal]: : :" },
+                { index: 173, content: "cr[corona_radiata]: : :" }, { index: 174, content: "cr[corona_radiata]: : :" }, { index: 175, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 176, content: "HipF[Hippocampal_formation]: : :" }, { index: 177, content: "Amy[Amygdala]: : :" }, { index: 178, content: "Thal[Thalamus]: : :" }, { index: 179, content: "ZI[Zona_incerta]: : :" }, { index: 180, content: "Sth[Subthalamus]: : :" }, { index: 181, content: "MGN[Medial_geniculate_nucleus]: : :" }, { index: 182, content: "LGN[Lateral_geniculate_nucleus]: : :" },
+                { index: 183, content: "Cd[Caudate]: : :" }, { index: 184, content: "Pu[Putamen]: : :" }, { index: 185, content: "Acb[Acumbens]: : :" }, { index: 186, content: "Cl[Claustrum_and_endopirform_claustrum]: : :" }, { index: 187, content: "Hypo[Hypothalamus]: : :" }, { index: 188, content: "Sep[Septum]: : :" }, { index: 189, content: "GP[Globus_pallidus]: : :" }, { index: 190, content: "IC[Inferior_colliculus]: : :" }, { index: 191, content: "SC[Superior_colliculus]: : :" }, { index: 192, content: "SNR[Substantia_nigra]: : :" }, { index: 193, content: "PAG[Periaqueductal_gray]: : :" },
+                { index: 194, content: "HB[habenular_nuclei]: : :" }, { index: 195, content: "CeB[Cerebellum]: : :" }, { index: 196, content: "A10(vH): : :" }, { index: 197, content: "A9(vH): : :" }, { index: 198, content: "A46(vH): : :" }, { index: 199, content: "8a(vH): : :" }, { index: 200, content: "8b(vH): : :" }, { index: 201, content: "A47L(vH): : :" }, { index: 202, content: "A47M(vH): : :" }, { index: 203, content: "A45(vH): : :" }, { index: 204, content: "ProM(vH): : :" }, { index: 205, content: "A32V(vH): : :" }, { index: 206, content: "A32D(vH): : :" }, { index: 207, content: "A14(vH): : :" },
+                { index: 208, content: "A24a(vH): : :" }, { index: 209, content: "A24b(vH): : :" }, { index: 210, content: "A24cd(vH): : :" }, { index: 211, content: "A25(vH): : :" }, { index: 212, content: "A11L(vH): : :" }, { index: 213, content: "A11M(vH): : :" }, { index: 214, content: "A13L(vH): : :" }, { index: 215, content: "A13M(vH): : :" }, { index: 216, content: "Gu(vH): : :" }, { index: 217, content: "Opro(vH): : :" }, { index: 218, content: "OPAI(vH): : :" }, { index: 219, content: "A6D(vH): : :" }, { index: 220, content: "A6M(vH): : :" }, { index: 221, content: "A6V(vH): : :" }, {
+                    index: 222,
+                    content: "A4M(vH): : :"
+                }, { index: 223, content: "A4L(vH): : :" }, { index: 224, content: "S1M(vH): : :" }, { index: 225, content: "S1D(vH): : :" }, { index: 226, content: "S1V(vH): : :" }, { index: 227, content: "S2a(vH): : :" }, { index: 228, content: "S2b(vH): : :" }, { index: 229, content: "Core(vH): : :" }, { index: 230, content: "BeltM(vH): : :" }, { index: 231, content: "BeltL(vH): : :" }, { index: 232, content: "PBR(vH): : :" }, { index: 233, content: "PBC(vH): : :" }, { index: 234, content: "STR(vH): : :" }, { index: 235, content: "AI(vH): : :" }, { index: 236, content: "DI(vH): : :" },
+                { index: 237, content: "GI(vH): : :" }, { index: 238, content: "Rel(vH): : :" }, { index: 239, content: "PalR(vH): : :" }, { index: 240, content: "PalC(vH): : :" }, { index: 241, content: "Tpt(vH): : :" }, { index: 242, content: "TPOR(vH): : :" }, { index: 243, content: "TPOC(vH): : :" }, { index: 244, content: "FSTR(vH): : :" }, { index: 245, content: "FSTC(vH): : :" }, { index: 246, content: "TEa(vH): : :" }, { index: 247, content: "TEb(vH): : :" }, { index: 248, content: "TEc(vH): : :" }, { index: 249, content: "TEd(vH): : :" }, { index: 250, content: "TEe(vH): : :" }, {
+                    index: 251,
+                    content: "TEf(vH): : :"
+                }, { index: 252, content: "TPPro(vH): : :" }, { index: 253, content: "PrhR(vH): : :" }, { index: 254, content: "PrhC(vH): : :" }, { index: 255, content: "Enta(vH): : :" }, { index: 256, content: "Entb(vH): : :" }, { index: 257, content: "PHGa(vH): : :" }, { index: 258, content: "PHGb(vH): : :" }, { index: 259, content: "PHGc(vH): : :" }, { index: 260, content: "Pri(vH): : :" }, { index: 261, content: "SB(vH): : :" }, { index: 262, content: "PEa(vH): : :" }, { index: 263, content: "PEb(vH): : :" }, { index: 264, content: "PF/PFGa(vH): : :" }, {
+                    index: 265,
+                    content: "PF/PFGb(vH): : :"
+                }, { index: 266, content: "PGa(vH): : :" }, { index: 267, content: "PGb(vH): : :" }, { index: 268, content: "Opta(vH): : :" }, { index: 269, content: "Optb(vH): : :" }, { index: 270, content: "IPa(vH): : :" }, { index: 271, content: "IPb(vH): : :" }, { index: 272, content: "IPc(vH): : :" }, { index: 273, content: "IPd(vH): : :" }, { index: 274, content: "A23a(vH): : :" }, { index: 275, content: "A23b(vH): : :" }, { index: 276, content: "A23V(vH): : :" }, { index: 277, content: "A29M(vH): : :" }, { index: 278, content: "A30(vH): : :" }, { index: 279, content: "A29V(vH): : :" },
+                { index: 280, content: "A31(vH): : :" }, { index: 281, content: "PGMa(vH): : :" }, { index: 282, content: "PGMb(vH): : :" }, { index: 283, content: "ProSt(vH): : :" }, { index: 284, content: "V1a(vH): : :" }, { index: 285, content: "V1b(vH): : :" }, { index: 286, content: "V2M(vH): : :" }, { index: 287, content: "V2L(vH): : :" }, { index: 288, content: "V2V(vH): : :" }, { index: 289, content: "V3D(vH): : :" }, { index: 290, content: "V3L(vH): : :" }, { index: 291, content: "V3V(vH): : :" }, { index: 292, content: "V4L(vH): : :" }, { index: 293, content: "V4V(vH): : :" }, {
+                    index: 294,
+                    content: "V5R(vH): : :"
+                }, { index: 295, content: "V5C(vH): : :" }, { index: 296, content: "V6R(vH): : :" }, { index: 297, content: "V6M(vH): : :" }, { index: 298, content: "V6D(vH): : :" }, { index: 299, content: "A19DI(vH): : :" }, { index: 300, content: "A19M(vH): : :" }, { index: 301, content: "MST(vH): : :" }]
+            },
+            header: {
+                images: { summaryimagefile: "NIH_combined_wm_sub_cortexH_reindex" },
+                name: "n.a.",
+                type: "Combined all white matter, subcortical, and cortex (vH) ROIs reindex"
+            }, version: 2
+        }
+    },
+}
 
+
+papaya.data.Atlases['v2_P'] = {
+    labels: {
+        atlas: {
+            data: {
+                label: [{ index: 1, content: "cc[corpus_callosum]: : :" }, { index: 2, content: "fminor-p[forceps_minor]: : :" }, { index: 3, content: "fmajor-p[forceps_major]: : :" }, { index: 4, content: "tap-p[tapetum]: : :" }, { index: 5, content: "finfer[inferior_forceps]: : :" }, { index: 6, content: "ac[anterior_commissure]: : :" }, { index: 7, content: "pc[posterior_commissure]: : :" }, { index: 8, content: "csc[commissure_of_superior_colliculus]: : :" }, { index: 9, content: "cic[commissure_of_inferior_colliculus]: : :" },
+                { index: 10, content: "hbc[habenular_commissure]: : :" }, { index: 11, content: "ica[anterior_limb_of_internal_capsule]: : :" }, { index: 12, content: "icp[posterior_limb_of_internal_capsule]: : :" }, { index: 13, content: "cp[cerebral_peduncle]: : :" }, { index: 14, content: "lfp[longitudinal_pontine_fasciculus]: : :" }, { index: 15, content: "py[pyramidal_tract]: : :" }, { index: 16, content: "ec[external_capsule]: : :" }, { index: 17, content: "ex[extreme_capsule]: : :" }, { index: 18, content: "ilf[inferior_longitudinal_fasciculus]: : :" }, {
+                    index: 19,
+                    content: "slf[superior_longitudinal_fasciculus]: : :"
+                }, { index: 20, content: "mdlf-stg[middle_longitudinal_fasciculus_in_STG]: : :" }, { index: 21, content: "mdlf-ext[middle_longitudinal_fasciculus_from_STG_to_parietal]: : :" }, { index: 22, content: "aum[fibers_connect_auditory_cortex_with_MGN]: : :" }, { index: 23, content: "f[body_of_fornix]: : :" }, { index: 24, content: "f[body_of_fornix]: : :" }, { index: 25, content: "fi[fimbra]: : :" }, { index: 26, content: "fi[fimbra]:finfer[inferior_forceps]: : :" }, { index: 27, content: "vhc[ventral_hippocampal_commissure]: : :" },
+                { index: 28, content: "fa[anterior_pillars_of_the_fornix]: : :" }, { index: 29, content: "alv[alveus]: : :" }, { index: 30, content: "alv[alveus]:tap-p[tapetum]: : :" }, { index: 31, content: "alv[alveus]:finfer[inferior_forceps]: : :" }, { index: 32, content: "af[fibers_around_amygdala]: : :" }, { index: 33, content: "af[fibers_around_amygdala]:ac[anterior_commissure]: : :" }, { index: 34, content: "unc[uncinate_fasciculus]: : :" }, { index: 35, content: "unc[uncinate_fasciculus]:ec[external_capsule]: : :" }, { index: 36, content: "unc[uncinate_fasciculus]:ex[extreme_capsule]: : :" },
+                { index: 37, content: "pcg[parahippocampal_cingulum]: : :" }, { index: 38, content: "pcg[parahippocampal_cingulum]:finfer[inferior_forceps]: : :" }, { index: 39, content: "scg[superior_cinglulum]: : :" }, { index: 40, content: "scg[superior_cinglulum]:cc[corpus_callosum]: : :" }, { index: 41, content: "scg[superior_cinglulum]:fminor-p[forceps_minor]: : :" }, { index: 42, content: "scg[superior_cinglulum]:fmajor-p[forceps_major]: : :" }, { index: 43, content: "scg[superior_cinglulum]:tap-p[tapetum]: : :" }, { index: 44, content: "stb-p[parts_of_striatal_bundle]: : :" },
+                { index: 45, content: "stb-p[parts_of_striatal_bundle]:ec[external_capsule]: : :" }, { index: 46, content: "iml[internal_medullary_lamina_of_thalamus]: : :" }, { index: 47, content: "eml[external_medullary_lamina_of_thalamus]: : :" }, { index: 48, content: "eml[external_medullary_lamina_of_thalamus]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 49, content: "eml[external_medullary_lamina_of_thalamus]:aum[fibers_connect_auditory_cortex_with_MGN]: : :" }, { index: 50, content: "lml[lateral_medullary_lamina_of_globus_pallidum]: : :" },
+                { index: 51, content: "lml[lateral_medullary_lamina_of_globus_pallidum]:ica[anterior_limb_of_internal_capsule]: : :" }, { index: 52, content: "lml[lateral_medullary_lamina_of_globus_pallidum]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 53, content: "mml[medial_medullary_lamina_of_globus_pallidum]: : :" }, { index: 54, content: "h1[H1_thalamic_fasciculus]: : :" }, { index: 55, content: "h2[H2_lenticular_fasciculus]: : :" }, { index: 56, content: "mtt[mammillothalamic_tract]: : :" }, { index: 57, content: "st[stria_terminalis]: : :" },
+                { index: 58, content: "sm[stria_medullaris]: : :" }, { index: 59, content: "hi[habenulointerpeduncular_tract]: : :" }, { index: 60, content: "mb[muratoff_bundle]: : :" }, { index: 61, content: "mb[muratoff_bundle]:tap-p[tapetum]: : :" }, { index: 62, content: "tfp[transverse_fibers_of_pons]: : :" }, { index: 63, content: "mcp[middle_cerebellar_peduncle]: : :" }, { index: 64, content: "icp[inferior_cerebellar_peduncle]: : :" }, { index: 65, content: "sp5[spinal_trigeminal_tract]: : :" }, { index: 66, content: "oc[olivocerebellar_tract]: : :" }, {
+                    index: 67,
+                    content: "scp[superior_cerebellar_peduncle]: : :"
+                }, { index: 68, content: "vsc[ventral_spinocerebellar_tract]: : :" }, { index: 69, content: "tz[trapezoid_body]: : :" }, { index: 70, content: "xscp[decussation_of_superior_cerebellar_peduncle]: : :" }, { index: 71, content: "mlf[medial_longitudinal_fasciculus]: : :" }, { index: 72, content: "ml[medial_lemniscus]: : :" }, { index: 73, content: "ll[lateral_lemniscus]: : :" }, { index: 74, content: "8n: : :" }, { index: 75, content: "5n: : :" }, { index: 76, content: "6n: : :" }, { index: 77, content: "7n: : :" },
+                { index: 78, content: "bsc[branchium_of_superior_colliculus]: : :" }, { index: 79, content: "bic[branchium_of_inferior_colliculus]: : :" }, { index: 80, content: "sn[striatonigral_fibers]: : :" }, { index: 81, content: "sn[striatonigral_fibers]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 82, content: "puf[putamen_fibers]: : :" }, { index: 83, content: "ffc[fibers_in_frontal_pole]: : :" }, { index: 84, content: "ffc[fibers_in_frontal_pole]:fminor-p[forceps_minor]: : :" }, { index: 85, content: "cr[corona_radiata]: : :" }, {
+                    index: 86,
+                    content: "cr[corona_radiata]:cc[corpus_callosum]: : :"
+                }, { index: 87, content: "cr[corona_radiata]:fminor-p[forceps_minor]: : :" }, { index: 88, content: "cr[corona_radiata]:tap-p[tapetum]: : :" }, { index: 89, content: "cr[corona_radiata]:ica[anterior_limb_of_internal_capsule]: : :" }, { index: 90, content: "cr[corona_radiata]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 91, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 92, content: "cr[corona_radiata]:fof[occipitofrontal_fasciculus]: : :" },
+                { index: 93, content: "cr[corona_radiata]:mdlf-ext[middle_longitudinal_fasciculus_from_STG_to_parietal]: : :" }, { index: 94, content: "cbwm[white_matter_of_cerebellum]: : :" }, { index: 95, content: "mls[medial_longitudinal_striae]:mls[medial_longitudinal_striae]: : :" }, { index: 96, content: "mls[medial_longitudinal_striae]:mls[medial_longitudinal_striae]: : :" }, { index: 97, content: "lls[lateral_longitudinal_striae]: : :" }, { index: 98, content: "lls[lateral_longitudinal_striae]:cc[corpus_callosum]: : :" }, { index: 99, content: "lls[lateral_longitudinal_striae]:fmajor-p[forceps_major]: : :" },
+                { index: 100, content: "opt[optic_tract]: : :" }, { index: 101, content: "opt[optic_tract]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 102, content: "opt[optic_tract]:alv[alveus]: : :" }, { index: 103, content: "lgnf[white_matter_circumvent_LGN]: : :" }, { index: 104, content: "lgnf[white_matter_circumvent_LGN]:aum[fibers_connect_auditory_cortex_with_MGN]: : :" }, { index: 105, content: "lgnf[white_matter_circumvent_LGN]:fi[fimbra]: : :" }, { index: 106, content: "lgnf[white_matter_circumvent_LGN]:eml[external_medullary_lamina_of_thalamus]: : :" },
+                { index: 107, content: "lgnf[white_matter_circumvent_LGN]:aum[fibers_connect_auditory_cortex_with_MGN]:eml[external_medullary_lamina_of_thalamus]: : :" }, { index: 108, content: "lgnf[white_matter_circumvent_LGN]:st[stria_terminalis]: : :" }, { index: 109, content: "lgnf[white_matter_circumvent_LGN]:sn[striatonigral_fibers]: : :" }, { index: 110, content: "ss[sagittal_stratum]: : :" }, { index: 111, content: "ss[sagittal_stratum]:fmajor-p[forceps_major]: : :" }, { index: 112, content: "ss[sagittal_stratum]:tap-p[tapetum]: : :" }, {
+                    index: 113,
+                    content: "ss[sagittal_stratum]:finfer[inferior_forceps]: : :"
+                }, { index: 114, content: "ss[sagittal_stratum]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 115, content: "ss[sagittal_stratum]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 116, content: "ss[sagittal_stratum]:mdlf-stg[middle_longitudinal_fasciculus_in_STG]: : :" }, { index: 117, content: "ss[sagittal_stratum]:mdlf-ext[middle_longitudinal_fasciculus_from_STG_to_parietal]: : :" }, { index: 118, content: "ss[sagittal_stratum]:aum[fibers_connect_auditory_cortex_with_MGN]: : :" },
+                { index: 119, content: "ss[sagittal_stratum]:alv[alveus]: : :" }, { index: 120, content: "ss[sagittal_stratum]:stb-p[parts_of_striatal_bundle]: : :" }, { index: 121, content: "ss[sagittal_stratum]:eml[external_medullary_lamina_of_thalamus]: : :" }, { index: 122, content: "ss[sagittal_stratum]:sn[striatonigral_fibers]: : :" }, { index: 123, content: "ss[sagittal_stratum]:cr[corona_radiata]: : :" }, { index: 124, content: "ss[sagittal_stratum]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 125, content: "strk[stratum_calcarinum]: : :" },
+                { index: 126, content: "strk[stratum_calcarinum]:fmajor-p[forceps_major]: : :" }, { index: 127, content: "strk[stratum_calcarinum]:tap-p[tapetum]: : :" }, { index: 128, content: "strk[stratum_calcarinum]:finfer[inferior_forceps]: : :" }, { index: 129, content: "strk[stratum_calcarinum]:pcg[parahippocampal_cingulum]: : :" }, { index: 130, content: "strk[stratum_calcarinum]:scg[superior_cinglulum]: : :" }, { index: 131, content: "ovf[occipital_vertical_fasciculus]: : :" }, { index: 132, content: "ovf[occipital_vertical_fasciculus]:ilf[inferior_longitudinal_fasciculus]: : :" },
+                { index: 133, content: "ovf[occipital_vertical_fasciculus]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 134, content: "ovf[occipital_vertical_fasciculus]:mdlf-stg[middle_longitudinal_fasciculus_in_STG]: : :" }, { index: 135, content: "ovf[occipital_vertical_fasciculus]:mdlf-ext[middle_longitudinal_fasciculus_from_STG_to_parietal]: : :" }, { index: 136, content: "ovf[occipital_vertical_fasciculus]:pcg[parahippocampal_cingulum]: : :" }, { index: 137, content: "ovf[occipital_vertical_fasciculus]:stb-p[parts_of_striatal_bundle]: : :" },
+                { index: 138, content: "ovf[occipital_vertical_fasciculus]:cr[corona_radiata]: : :" }, { index: 139, content: "ovf[occipital_vertical_fasciculus]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 140, content: "opv[occipital_pole_local_fibers_ventral]: : :" }, { index: 141, content: "opv[occipital_pole_local_fibers_ventral]:ilf[inferior_longitudinal_fasciculus]: : :" }, { index: 142, content: "opd[occipital_pole_local_fibers_dorsal]: : :" }, { index: 143, content: "scm[local_fibers_of_the_callosomarginal_sulcus]: : :" }, {
+                    index: 144,
+                    content: "scm[local_fibers_of_the_callosomarginal_sulcus]:fmajor-p[forceps_major]: : :"
+                }, { index: 145, content: "scm[local_fibers_of_the_callosomarginal_sulcus]:scg[superior_cinglulum]: : :" }, { index: 146, content: "sod[supraoptic_decussation]: : :" }, { index: 147, content: "cr[corona_radiata]: : :" }, { index: 148, content: "cr[corona_radiata]:cc[corpus_callosum]: : :" }, { index: 149, content: "cr[corona_radiata]:fminor-p[forceps_minor]: : :" }, { index: 150, content: "cr[corona_radiata]:scg[superior_cinglulum]: : :" }, {
+                    index: 151,
+                    content: "cr[corona_radiata]:cc[corpus_callosum]:scg[superior_cinglulum]: : :"
+                }, { index: 152, content: "cr[corona_radiata]:mb[muratoff_bundle]: : :" }, { index: 153, content: "cr[corona_radiata]: : :" }, { index: 154, content: "cr[corona_radiata]:cc[corpus_callosum]: : :" }, { index: 155, content: "cr[corona_radiata]:fminor-p[forceps_minor]: : :" }, { index: 156, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 157, content: "cr[corona_radiata]:fof[occipitofrontal_fasciculus]: : :" }, { index: 158, content: "cr[corona_radiata]: : :" },
+                { index: 159, content: "cr[corona_radiata]:ica[anterior_limb_of_internal_capsule]: : :" }, { index: 160, content: "cr[corona_radiata]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 161, content: "cr[corona_radiata]: : :" }, { index: 162, content: "cr[corona_radiata]:ica[anterior_limb_of_internal_capsule]: : :" }, { index: 163, content: "cr[corona_radiata]:icp[posterior_limb_of_internal_capsule]: : :" }, { index: 164, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 165, content: "cr[corona_radiata]:fof[occipitofrontal_fasciculus]: : :" },
+                { index: 166, content: "cr[corona_radiata]: : :" }, { index: 167, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 168, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]:scg[superior_cinglulum]: : :" }, { index: 169, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]:ffc[fibers_in_frontal_pole]: : :" }, { index: 170, content: "cr[corona_radiata]: : :" }, { index: 171, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 172, content: "cr[corona_radiata]:mdlf-ext[middle_longitudinal_fasciculus_from_STG_to_parietal]: : :" },
+                { index: 173, content: "cr[corona_radiata]: : :" }, { index: 174, content: "cr[corona_radiata]: : :" }, { index: 175, content: "cr[corona_radiata]:slf[superior_longitudinal_fasciculus]: : :" }, { index: 176, content: "HipF[Hippocampal_formation]: : :" }, { index: 177, content: "Amy[Amygdala]: : :" }, { index: 178, content: "Thal[Thalamus]: : :" }, { index: 179, content: "ZI[Zona_incerta]: : :" }, { index: 180, content: "Sth[Subthalamus]: : :" }, { index: 181, content: "MGN[Medial_geniculate_nucleus]: : :" }, { index: 182, content: "LGN[Lateral_geniculate_nucleus]: : :" },
+                { index: 183, content: "Cd[Caudate]: : :" }, { index: 184, content: "Pu[Putamen]: : :" }, { index: 185, content: "Acb[Acumbens]: : :" }, { index: 186, content: "Cl[Claustrum_and_endopirform_claustrum]: : :" }, { index: 187, content: "Hypo[Hypothalamus]: : :" }, { index: 188, content: "Sep[Septum]: : :" }, { index: 189, content: "GP[Globus_pallidus]: : :" }, { index: 190, content: "IC[Inferior_colliculus]: : :" }, { index: 191, content: "SC[Superior_colliculus]: : :" }, { index: 192, content: "SNR[Substantia_nigra]: : :" }, { index: 193, content: "PAG[Periaqueductal_gray]: : :" },
+                { index: 194, content: "HB[habenular_nuclei]: : :" }, { index: 195, content: "CeB[Cerebellum]: : :" }, { index: 196, content: "A1 and A2(vPaxinos): : :" }, { index: 197, content: "A10(vPaxinos): : :" }, { index: 198, content: "A11(vPaxinos): : :" }, { index: 199, content: "A13L(vPaxinos): : :" }, { index: 200, content: "A13M(vPaxinos): : :" }, { index: 201, content: "A13a(vPaxinos): : :" }, { index: 202, content: "A13b(vPaxinos): : :" }, { index: 203, content: "A14C(vPaxinos): : :" }, { index: 204, content: "A14R(vPaxinos): : :" }, { index: 205, content: "A19DI(vPaxinos): : :" },
+                { index: 206, content: "A19M(vPaxinos): : :" }, { index: 207, content: "A23V(vPaxinos): : :" }, { index: 208, content: "A23a(vPaxinos): : :" }, { index: 209, content: "A23b(vPaxinos): : :" }, { index: 210, content: "A23c(vPaxinos): : :" }, { index: 211, content: "A24a(vPaxinos): : :" }, { index: 212, content: "A24b(vPaxinos): : :" }, { index: 213, content: "A24c(vPaxinos): : :" }, { index: 214, content: "A24d(vPaxinos): : :" }, { index: 215, content: "A25(vPaxinos): : :" }, { index: 216, content: "A29a-c(vPaxinos): : :" }, { index: 217, content: "A29d(vPaxinos): : :" },
+                { index: 218, content: "A30(vPaxinos): : :" }, { index: 219, content: "A31(vPaxinos): : :" }, { index: 220, content: "A32(vPaxinos): : :" }, { index: 221, content: "A32V(vPaxinos): : :" }, { index: 222, content: "A35(vPaxinos): : :" }, { index: 223, content: "A36(vPaxinos): : :" }, { index: 224, content: "A3a(vPaxinos): : :" }, { index: 225, content: "A3b(vPaxinos): : :" }, { index: 226, content: "A45(vPaxinos): : :" }, { index: 227, content: "A46D(vPaxinos): : :" }, { index: 228, content: "A46V(vPaxinos): : :" }, { index: 229, content: "A47L(vPaxinos): : :" }, {
+                    index: 230,
+                    content: "A47M(vPaxinos): : :"
+                }, { index: 231, content: "A47O(vPaxinos): : :" }, { index: 232, content: "A4ab(vPaxinos): : :" }, { index: 233, content: "A4c(vPaxinos): : :" }, { index: 234, content: "A6DC(vPaxinos): : :" }, { index: 235, content: "A6DR(vPaxinos): : :" }, { index: 236, content: "A6M(vPaxinos): : :" }, { index: 237, content: "A6Va(vPaxinos): : :" }, { index: 238, content: "A6Vb(vPaxinos): : :" }, { index: 239, content: "A8C(vPaxinos): : :" }, { index: 240, content: "A8aD(vPaxinos): : :" }, { index: 241, content: "A8Av(vPaxinos): : :" }, {
+                    index: 242,
+                    content: "A8b(vPaxinos): : :"
+                }, { index: 243, content: "A9(vPaxinos): : :" }, { index: 244, content: "AI(vPaxinos): : :" }, { index: 245, content: "AIP(vPaxinos): : :" }, { index: 246, content: "Apri(vPaxinos): : :" }, { index: 247, content: "AuA1(vPaxinos): : :" }, { index: 248, content: "AuAL(vPaxinos): : :" }, { index: 249, content: "AuAL(vPaxinos): : :" }, { index: 250, content: "AuCM(vPaxinos): : :" }, { index: 251, content: "AuCPB(vPaxinos): : :" }, { index: 252, content: "AuML(vPaxinos): : :" }, { index: 253, content: "AuR(vPaxinos): : :" }, { index: 254, content: "AuRM(vPaxinos): : :" },
+                { index: 255, content: "AuRPB(vPaxinos): : :" }, { index: 256, content: "AuRT(vPaxinos): : :" }, { index: 257, content: "AuRTL(vPaxinos): : :" }, { index: 258, content: "AuRTM(vPaxinos): : :" }, { index: 259, content: "DI(vPaxinos): : :" }, { index: 260, content: "Ent(vPaxinos): : :" }, { index: 261, content: "FST(vPaxinos): : :" }, { index: 262, content: "GI(vPaxinos): : :" }, { index: 263, content: "Gu(vPaxinos): : :" }, { index: 264, content: "Ipro(vPaxinos): : :" }, { index: 265, content: "LIP(vPaxinos): : :" }, { index: 266, content: "MIP(vPaxinos): : :" }, {
+                    index: 267,
+                    content: "MST(vPaxinos): : :"
+                }, { index: 268, content: "OPAI(vPaxinos): : :" }, { index: 269, content: "OPro(vPaxinos): : :" }, { index: 270, content: "OPt(vPaxinos): : :" }, { index: 271, content: "PE(vPaxinos): : :" }, { index: 272, content: "PEC(vPaxinos): : :" }, { index: 273, content: "PF(vPaxinos): : :" }, { index: 274, content: "PFG(vPaxinos): : :" }, { index: 275, content: "PG(vPaxinos): : :" }, { index: 276, content: "PGM(vPaxinos): : :" }, { index: 277, content: "PGa and IPa(vPaxinos): : :" }, { index: 278, content: "PalL(vPaxinos): : :" }, { index: 279, content: "PalM(vPaxinos): : :" },
+                { index: 280, content: "Pir(vPaxinos): : :" }, { index: 281, content: "ProM(vPaxinos): : :" }, { index: 282, content: "ProSt(vPaxinos): : :" }, { index: 283, content: "Rel(vPaxinos): : :" }, { index: 284, content: "S2E(vPaxinos): : :" }, { index: 285, content: "S2I(vPaxinos): : :" }, { index: 286, content: "S2PR(vPaxinos): : :" }, { index: 287, content: "S2PV(vPaxinos): : :" }, { index: 288, content: "STR(vPaxinos): : :" }, { index: 289, content: "TE1(vPaxinos): : :" }, { index: 290, content: "TE2(vPaxinos): : :" }, { index: 291, content: "TE3(vPaxinos): : :" }, {
+                    index: 292,
+                    content: "TEO(vPaxinos): : :"
+                }, { index: 293, content: "TF(vPaxinos): : :" }, { index: 294, content: "TFO(vPaxinos): : :" }, { index: 295, content: "TH(vPaxinos): : :" }, { index: 296, content: "TL(vPaxinos): : :" }, { index: 297, content: "TLO(vPaxinos): : :" }, { index: 298, content: "TPO(vPaxinos): : :" }, { index: 299, content: "TPPro(vPaxinos): : :" }, { index: 300, content: "Tpro(vPaxinos): : :" }, { index: 301, content: "TPt(vPaxinos): : :" }, { index: 302, content: "V1(vPaxinos): : :" }, { index: 303, content: "V2(vPaxinos): : :" }, { index: 304, content: "V3(vPaxinos): : :" },
+                { index: 305, content: "V3A(vPaxinos): : :" }, { index: 306, content: "V4(vPaxinos): : :" }, { index: 307, content: "V4T(vPaxinos): : :" }, { index: 308, content: "V5(vPaxinos): : :" }, { index: 309, content: "V6(vPaxinos): : :" }, { index: 310, content: "V6A(vPaxinos): : :" }, { index: 311, content: "VIP(vPaxinos): : :" }]
+            },
+            header: {
+                images: {
+                    summaryimagefile: "NIH_combined_wm_sub_cortexP_reindex"
+                },
+                name: "n.a.",
+                type: "Combined all white matter, subcortical, and cortex (vPaxinos) ROIs reindex"
+            },
+            version: 2
+        }
+    },
+}
+
+papaya.data.Atlases['sub_all_gradient'] = papaya.data.Atlases['vPaxinos']
+papaya.data.Atlases['sub_all_5k_8k_gradient'] = papaya.data.Atlases['vPaxinos']
+papaya.data.Atlases['CERB_17lobe'] = papaya.data.Atlases['vPaxinos']
+papaya.data.Atlases['CERB_13lobe'] = papaya.data.Atlases['vPaxinos']
 
 
 var papayaLoadableImages = [
     { //0
-        hide: true,
+
         // name: "atlas_MBM_cortex_vPaxinos_both_same",
         // nicename: "Atlas",
         // url: "data/atlas_MBM_cortex_vPaxinos_both_same.nii.gz",
+        hide: true
     },
     { //1
         name: "atlas_MBM_cortex_vPaxinos_both_same",
         nicename: "atlas_MBM_cortex_vPaxinos_both_same",
-        url: "data/atlas_MBM_cortex_vPaxinos_right.nii.gz",
+        url: "data/atlas_MBM_cortex_vPaxinos_both_same.nii.gz",
         hide: true
     },
     { //2
@@ -621,23 +784,23 @@ var papayaLoadableImages = [
     { //8
         name: 'v4_atlas',
         nicename: "v4_atlas",
-        url: "data" + '/atlas_MBMv4_cortex_parcellation_right.nii.gz',
+        url: "data" + '/atlas_MBMv4_cortex_with_networks.nii.gz',
         hide: true
     },
     { //9
         name: 'vH_atlas',
         nicename: "vH_atlas",
-        url: "data" + '/atlas_MBM_cortex_vH_right.nii.gz',
+        url: "data" + '/atlas_MBM_cortex_vH_both_same.nii.gz',
         hide: true
     },
     { //10
-        name: 'parcellation_primary',
+        name: 'Network_primary',
         nicename: "parcellation_primary",
         url: "data" + '/atlas_MBMv4_networks_parcellation_primary.nii.gz',
         hide: false
     },
     { //11
-        name: 'parcellation_secondary',
+        name: 'Network_secondary',
         nicename: "parcellation_secondary",
         url: "data" + '/atlas_MBMv4_networks_parcellation_secondary.nii.gz',
         hide: false
@@ -647,22 +810,27 @@ var papayaLoadableImages = [
         nicename: "v4 surface label",
         url: "data" + '/surfFS.rh.MBMv4_cortex_parcellation.label.gii',
         surface: true,
+        hide: true
     },
     { //13
         name: 'v4 surface shape',
         nicename: "v4 surface shape",
         url: "data" + '/surfFS.rh.MBMv4_cortex_parcellation.R.func.gii',
         surface: true,
+        hide: true
     },
     { //14 network
         name: 'v4_network',
         nicename: "v4 network",
         url: "data" + '/atlas_MBMv4_networks_parcellation.nii.gz',
+        hide: true
     },
     { // 15 
         name: 'vH_surface',
         nicename: 'vH surface',
-        url: 'data' + '/surfFS.rh.MBM_cortex_vH_boundary.shape.gii'
+        url: 'data' + '/surfFS.rh.MBM_cortex_vH_boundary.shape.gii',
+        surface: true,
+        hide: true
     },
     // -----------------------------
     { // 16 
@@ -680,6 +848,48 @@ var papayaLoadableImages = [
         // nicename: 'vH surface',
         url: 'data' + '/GZipBase64Binary_surfFS.rh.MBMv4_networks_parcellation_primary_boundary.func.gii'
     },
+    // ------------
+    // v2 template
+    { //19
+        name: "Template_sym_FA_80um_char",
+        nicename: "Template_sym_FA_80um_char",
+        url: "data/Template_sym_FA_80um_char.nii.gz"
+    },
+    // v2_P
+    { //20
+        hide: !0,
+        name: "NIH_combined_wm_sub_cortexP_reindex",
+        nicename: "Atlas",
+        url: "data/NIH_combined_wm_sub_cortexP_reindex.nii.gz"
+    },
+    // v2_H
+    { //21
+        name: "NIH_combined_wm_sub_cortexH_reindex",
+        nicename: "Atlas",
+        url: "data/NIH_combined_wm_sub_cortexH_reindex.nii.gz"
+    },
+    // ----------
+    // 小脑
+    { //22
+        name: "sub_all_gradient",
+        url: "otherData/change_sub_all_gradient1.nii.gz",
+        coloredSurface: "otherData/sub_all_gradient1_group.func.gii"
+    },
+    { //23
+        name: "sub_all_5k_8k_gradient",
+        url: "otherData/change_sub_all_5k_8k_gradient1.nii.gz",
+        coloredSurface: "otherData/sub_all_5k_8k_gradient1_group.func.gii"
+    },
+    { //24
+        name: "CERB_17lobe",
+        url: "otherData/atlas_Marmoset_CERB_17lobe_change_gmmasked.nii.gz",
+        coloredSurface: "otherData/atlas_Marmoset_CERB_17lobe_group.shape.gii"
+    },
+    { //25
+        name: "CERB_13lobe",
+        url: "otherData/atlas_Marmoset_CERB_13lobe_change_gmmasked.nii.gz",
+        coloredSurface: "otherData/atlas_Marmoset_CERB_13lobe_group.shape.gii"
+    }
 ];
 
 
@@ -688,27 +898,83 @@ let atlas = document.querySelector('.papaya').getAttribute('atlas')
 papaya.data.Atlas = papaya.data.Atlases[atlas]
 
 var params = [];
-params["surfaces"] = ['data/surfFS.rh.graymid.surf.gii'];
+
+
+const setParams = (num)=>{
+    params["images"] = ['otherData/Template_sym_MTR_80um_CERB_small.nii.gz', papayaLoadableImages[num].url];
+    params[papayaLoadableImages[num].url.split('/')[1]] = {
+        min: -0.1,
+        max: 0.1,
+        lut: "Custom1",
+        // alpha: 0.4
+    };
+    params["atlas"] = papayaLoadableImages[num].url;
+    /** surface底板 */
+    params["surfaces"] = ['otherData/surfFS.CERB.pial_shifti.surf(1).gii']
+    /** 后续drawColor2Surface函数会将其画入viewer */
+    params["coloredSurface"] = papayaLoadableImages[num].coloredSurface
+}
+
 switch (atlas) {
     case "vPaxinos":
-        params["images"] = ['data/template_myelinmap_brain.nii.gz', papayaLoadableImages[1].url];
+        params["images"] = ['data/template_T2w_brain.nii.gz', papayaLoadableImages[1].url];
         params["atlas"] = papayaLoadableImages[1].url;
+        params["surfaces"] = ['data/surfFS.rh.graymid.surf.gii'];
         break;
     case "v4":
-        params["images"] = ['data/template_myelinmap_brain.nii.gz', papayaLoadableImages[8].url];
+        params["images"] = ['data/template_T2w_brain.nii.gz', papayaLoadableImages[8].url];
         params["atlas"] = papayaLoadableImages[8].url;
+        params["surfaces"] = ['data/surfFS.rh.graymid.surf.gii'];
         break;
     case "vH":
-        params["images"] = ['data/template_myelinmap_brain.nii.gz', papayaLoadableImages[9].url];
+        params["images"] = ['data/template_T2w_brain.nii.gz', papayaLoadableImages[9].url];
         params["atlas"] = papayaLoadableImages[9].url;
+        params["surfaces"] = ['data/surfFS.rh.graymid.surf.gii'];
         break;
     case "vNetwork":
-        params["images"] = ['data/template_myelinmap_brain.nii.gz', papayaLoadableImages[14].url];
+        params["images"] = ['data/template_T2w_brain.nii.gz', papayaLoadableImages[14].url];
         params["atlas"] = papayaLoadableImages[14].url;
+        params["surfaces"] = ['data/surfFS.rh.graymid.surf.gii'];
+        break;
 
+    case "v2_P":
+        params["images"] = [papayaLoadableImages[19].url, papayaLoadableImages[20].url];
+        params["atlas"] = papayaLoadableImages[19].url;
+        break;
+
+    case "v2_H":
+        params["images"] = [papayaLoadableImages[19].url, papayaLoadableImages[21].url];
+        params["atlas"] = papayaLoadableImages[11].url;
+        break;
+
+    case "sub_all_gradient":
+        setParams(22)
+        break
+
+    case "sub_all_5k_8k_gradient":
+        setParams(23)
+        break
+    
+    case "CERB_17lobe":
+        setParams(24)
+        break
+
+    case "CERB_13lobe":
+        setParams(25)
+        break
+        // params["images"] = ['otherData/Template_sym_MTR_80um_CERB_small.nii.gz', papayaLoadableImages[22].url];
+        // params["atlas"] = papayaLoadableImages[22].url;
+        // /** surface底板 */
+        // params["surfaces"] = ['otherData/surfFS.CERB.pial_shifti.surf(1).gii']
+        // /** 后续drawColor2Surface函数将其画入viewer */
+        // params["coloredSurface"] = papayaLoadableImages[22].coloredSurface
+
+    // case ""
+    //     break;
     default:
         break;
 }
+params["radiological"] = true
 params["luts"] = [
     {
         name: "Custom",
@@ -864,28 +1130,92 @@ params["luts"] = [
             [0.9932885906040256, 62, 10, 205],
         ],
     },
+    {
+        name: "Custom1",
+        data: [
+            [0, 0,1,1],
+            [0.25,0,128/255,255/255 ],
+            [0.5, 0,0,0],
+            [0.65,1,128/255,104/255],
+            [0.75,1,0.8,0],
+            [0.85,239/255,1,0]
+        ]
+    }
 ];
-params["atlas_MBM_cortex_vPaxinos_right.nii.gz"] = {
+params["atlas_MBM_cortex_vPaxinos_both_same.nii.gz"] = {
     min: 0,
     max: 259,
     lut: "Custom",
+    alpha: 0.4
 };
-params['atlas_MBMv4_cortex_parcellation_right.nii.gz'] = {
+params['atlas_MBMv4_cortex_with_networks.nii.gz'] = {
     min: 0,
     max: 259,
     lut: "Custom",
+    alpha: 0.4
+
 };
-params['atlas_MBM_cortex_vH_right.nii.gz'] = {
+params['atlas_MBM_cortex_vH_both_same.nii.gz'] = {
     min: 0,
     max: 259,
     lut: "Custom",
+    alpha: 0.4
+
 };
 params['atlas_MBMv4_networks_parcellation.nii.gz'] = {
     min: 0,
     max: 259,
     lut: "Custom",
+    alpha: 0.4
 };
+params["NIH_combined_wm_sub_cortexP_reindex.nii.gz"] = {
+    min: 0,
+    max: 312,
+    lut: "Custom",
+    alpha: 0.4
+};
+params["NIH_combined_wm_sub_cortexH_reindex.nii.gz"] = {
+    min: 0,
+    max: 312,
+    lut: "Custom",
+    alpha: 0.4
+};
+
 params['template_myelinmap_brain.nii.gz'] = {
     min: 0,
-    max: 3
+    max: 2000
+}
+params['mainView'] = 'coronal'
+params['surfaceBackground'] = 'Black'
+params["radiological"] = true
+
+
+const drawColor2Surface = () => {
+    const surface = papayaContainers[0].viewer.surfaces[0]
+    const viewer = papayaContainers[0].viewer
+    // 这里1
+    const volume = papayaContainers[0].viewer.screenVolumes[1].volume
+    console.log(surface, viewer,volume)
+    
+    console.log(surface.parametricData)
+
+    const surfaceDataUrl = params['coloredSurface']
+    console.log("loading surface", surfaceDataUrl)
+    // const surfaceDataUrl = 'otherData//sub_all_5k_8k_gradient1_group.func.gii'
+    fetch(surfaceDataUrl, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'text/xml',
+        },
+    }).then(res=>res.text()).then(_data=>{
+
+        const data = gifti.parse(_data).getZScoresDataArray().getData()
+        surface.parametricData.push({
+            viewer: viewer,
+            volume: volume,
+            data: data,
+        })
+        viewer.drawViewer(!0)
+        console.log('done')
+    })
 }

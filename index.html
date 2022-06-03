@@ -7,49 +7,68 @@
 
 	<!-- iOS meta tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 	<!-- bootstrap -->
 	<!-- CSS only -->
 	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script> -->
-	<link rel="stylesheet" href="/papaya_visualization/css/bootstrap.min.css">
-	<script src="/papaya_visualization/js/bootstrap.bundle.min.js"></script>
-
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="js/bootstrap.bundle.min.js"></script>
 
 	<title>Papaya Viewer</title>
-
-
-
 </head>
 
 <body>
-	<div class="container">
-		<header class="d-flex justify-content-center py-3">
-			<ul class="nav nav-pills text-white">
-				<li class="nav-item"><a href="/papaya_visualization/index.html" class="nav-link text-white active"
-						aria-current="page">MBMv3_Cortex_vPaxinos</a></li>
-				<li class="nav-item"><a href="/papaya_visualization/index_vH.html"
-						class="nav-link text-white">MBMv3_Cortex_vH</a></li>
-				<li class="nav-item"><a href="/papaya_visualization/index_v4.html"
-						class="nav-link text-white">MBMv4_Cortex_vFC</a></li>
-				<li class="nav-item"><a href="/papaya_visualization/index_vNetwork.html"
-						class="nav-link text-white">MBMv4_Cortex_vNetwork</a></li>
-			</ul>
-		</header>
-		<div class="papaya-wrapper">
+	<header class="d-flex justify-content-center py-3">
+		<ul class="nav nav-pills text-white">
+			<li class="nav-item">
+				<a href="index.html" class="nav-link text-white active" aria-current="page">MBMv3_Cortex_vPaxinos</a>
+			</li>
+			<li class="nav-item">
+				<a href="index_vH.html" class="nav-link text-white">MBMv3_Cortex_vH</a>
+			</li>
+			<li class="nav-item">
+				<a href="index_v4.html" class="nav-link text-white">MBMv4_Cortex_vFC</a>
+			</li>
+			<li class="nav-item">
+				<a href="index_vNetwork.html" class="nav-link text-white">MBMv4_Cortex_vNetwork</a>
+			</li>
+			<li class="nav-item">
+				<a href="index_sub_all_gradient.html" class="nav-link text-white">sub_all_gradient</a>
+			</li>
+			<li class="nav-item">
+				<a href="index_sub_all_5k_8k_gradient.html" class="nav-link text-white">sub_all_5k_8k_gradient</a>
+			</li>
+			<li class="nav-item">
+				<a href="index_CERB_17lobe.html" class="nav-link text-white">CERB_17lobe</a>
+			</li>
+			<li class="nav-item">
+				<a href="index_CERB_13lobe.html" class="nav-link text-white">CERB_13lobe</a>
+			</li>
+		</ul>
+	</header>
+	<div class="d-flex justify-content-center">
+		<div class="papaya-wrapper" style="width: calc(calc(100vh - 72px -70px) * 1.33)">
 			<div class="papaya" data-params="params" atlas="vPaxinos"></div>
 		</div>
-
-		<script type="text/javascript" src="papaya.js?build=1594"></script>
-		<link rel="stylesheet" type="text/css" href="papaya.css?build=1594" />
-		<script type="text/javascript" src="config.js"></script>
-
+		<!-- <ul class="nav nav-pills text-white flex-column">
+			<li class="nav-item"><a href="index.html" class="nav-link text-white active" aria-current="page">MBMv3_Cortex_vPaxinos</a></li>
+			<li class="nav-item"><a href="index_vH.html" class="nav-link text-white">MBMv3_Cortex_vH</a></li>
+			<li class="nav-item"><a href="index_v4.html" class="nav-link text-white">MBMv4_Cortex_vFC</a></li>
+			<li class="nav-item"><a href="index_vNetwork.html" class="nav-link text-white">MBMv4_Cortex_vNetwork</a></li>
+		</ul> -->
 	</div>
+	<!-- <div class="papaya-wrapper" style=" width: calc(calc(100vh - 72px -70px) * 1.33); min-width: 1100px;">
 
+	</div> -->
 
+	<script type="text/javascript" src="papaya.js?build=1594"></script>
+	<link rel="stylesheet" type="text/css" href="papaya.css?build=1594" />
+	<script type="text/javascript" src="color_step.js"></script>
+	<script type="text/javascript" src="config.js"></script>
 </body>
 <style>
 	body {
@@ -60,6 +79,11 @@
 		border: 1px solid gray;
 		z-index: 1;
 	}
+
+	/* .text-rotate {
+		transform: rotate(90deg);
+		height: 25%;
+	} */
 </style>
 
 </html>
