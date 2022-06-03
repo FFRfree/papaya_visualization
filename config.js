@@ -114,22 +114,7 @@ function loadatlas(url, boundaryData) {
 PAPAYA_BUILD_NUM = "1594";
 ("use strict");
 papaya.data.Atlas.boundaryData = papaya.data.Atlas.boundaryData || {}
-// var binaryMapper = binaryMapper || {}
-var myLog = []
-var binaryMapper = function binaryMapper(a, b) {
-    myLog.push(a,b)
-    return .5 < a ? {
-        r: 0,
-        g: 0,
-        b: 0,
-        a: b.range.alpha
-    } : {
-        r: 1,
-        g: 1,
-        b: 1,
-        a: 1
-    }
-}
+var binaryMapper = binaryMapper || {}
 
 papaya.data.Atlases = papaya.data.Atlases || {};
 papaya.data.Atlases["vPaxinos"] = {
@@ -442,7 +427,6 @@ papaya.data.Atlases["vPaxinos"] = {
             max: 0,
             alpha: 0.3
         },
-        boundaryimagefile: 'Paxinos Boundaries',
         boundarysurfacefile: 'Paxinos Surface Boundaries',
         data: null,
     }
@@ -487,10 +471,7 @@ papaya.data.Atlases["v4"] = {
             max: 96,
             alpha: 0.3
         },
-        boundaryimagefile: 'Paxinos Boundaries',
-        boundarysurfacefile: 'Paxinos Surface Boundaries',
-        // boundarysurfacefile: 'v4 surface shape',
-        // boundarysurfacefile: 'v4 surface shape',
+        boundarysurfacefile: 'v4_surface_boundaries',
         data: null,
     }
 }
@@ -529,16 +510,13 @@ papaya.data.Atlases['vH'] = {
         }
     },
     boundaryData: {
-        mapper: binaryMapper,
+        mapper: function () { console.log(arguments) },
         range: {
             min: 0,
             max: 0,
             alpha: 0.3
         },
-        boundaryimagefile: 'Paxinos Boundaries',
-        boundarysurfacefile: 'Paxinos Surface Boundaries',
-        // boundarysurfacefile: 'v4 surface shape',
-        // boundarysurfacefile: 'v4 surface shape',
+        boundarysurfacefile: 'vH_surface_boundaries',
         data: null,
     }
 }
@@ -580,8 +558,8 @@ papaya.data.Atlases['vNetwork'] = {
             max: 0,
             alpha: 0.3
         },
-        boundaryimagefile: 'Paxinos Boundaries',
-        boundarysurfacefile: 'Paxinos Surface Boundaries',
+        // boundaryimagefile: 'Paxinos Boundaries',
+        boundarysurfacefile: 'vNetwork_surface_boundaries',
         data: null,
     }
 }
@@ -680,6 +658,27 @@ var papayaLoadableImages = [
         name: 'v4_network',
         nicename: "v4 network",
         url: "data" + '/atlas_MBMv4_networks_parcellation.nii.gz',
+    },
+    { // 15 
+        name: 'vH_surface',
+        nicename: 'vH surface',
+        url: 'data' + '/surfFS.rh.MBM_cortex_vH_boundary.shape.gii'
+    },
+    // -----------------------------
+    { // 16 
+        name: 'v4_surface_boundaries',
+        // nicename: 'vH surface',
+        url: 'data' + '/GZipBase64Binary_surfFS3.rh.MBMv4_cortex_parcellation.boundary.func.gii'
+    },
+    { // 17 
+        name: 'vH_surface_boundaries',
+        // nicename: 'vH surface',
+        url: 'data' + '/GZipBase64Binary_surfFS.rh.MBM_cortex_vH_boundary.func.gii'
+    },
+    { // 18 
+        name: 'vNetwork_surface_boundaries',
+        // nicename: 'vH surface',
+        url: 'data' + '/GZipBase64Binary_surfFS.rh.MBMv4_networks_parcellation_primary_boundary.func.gii'
     },
 ];
 
