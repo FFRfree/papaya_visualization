@@ -22,7 +22,7 @@
 </head>
 
 <body>
-	<header class="d-flex justify-content-center py-3">
+	<!-- <header class="d-flex justify-content-center py-3">
 		<ul class="nav nav-pills text-white">
 			<li class="nav-item">
 				<a href="index.html" class="nav-link text-white active" aria-current="page">MBMv3_Cortex_vPaxinos</a>
@@ -49,10 +49,22 @@
 				<a href="index_CERB_13lobe.html" class="nav-link text-white">CERB_13lobe</a>
 			</li>
 		</ul>
-	</header>
+	</header> -->
 	<div class="d-flex justify-content-center">
-		<div class="papaya-wrapper" style="width: calc(calc(100vh - 72px -70px) * 1.33)">
+		<div class="tabs-left">
+			<a href="index_sub_all_gradient.html" class="nav-link text-white">sub_all_gradient</a>
+			<a href="index_sub_all_5k_8k_gradient.html" class="nav-link text-white">sub_all_5k_8k_gradient</a>
+			<a href="index_CERB_17lobe.html" class="nav-link text-white">CERB_17lobe</a>
+			<a href="index_CERB_13lobe.html" class="nav-link text-white">CERB_13lobe</a>
+		</div>
+		<div class="papaya-wrapper">
 			<div class="papaya" data-params="params" atlas="vPaxinos"></div>
+		</div>
+		<div class="tabs-right">
+			<a href="index.html" class="nav-link text-white active" aria-current="page">MBMv3_Cortex_vPaxinos</a>
+			<a href="index_vH.html" class="nav-link text-white">MBMv3_Cortex_vH</a>
+			<a href="index_v4.html" class="nav-link text-white">MBMv4_Cortex_vFC</a>
+			<a href="index_vNetwork.html" class="nav-link text-white">MBMv4_Cortex_vNetwork</a>
 		</div>
 		<!-- <ul class="nav nav-pills text-white flex-column">
 			<li class="nav-item"><a href="index.html" class="nav-link text-white active" aria-current="page">MBMv3_Cortex_vPaxinos</a></li>
@@ -78,12 +90,45 @@
 	.papaya-wrapper {
 		border: 1px solid gray;
 		z-index: 1;
+		width: 120vh
 	}
 
 	/* .text-rotate {
 		transform: rotate(90deg);
 		height: 25%;
 	} */
+	.tabs-right {
+		/* -moz-transform: rotate(90deg);
+		-webkit-transform: rotate(90deg);  */
+		writing-mode: vertical-rl;
+		text-align: center;
+		color: white;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.tabs-left {
+		--degree: -180deg;
+		transform: rotate(var(--degree));
+		-moz-transform: rotate(var(--degree));
+		-webkit-transform: rotate(var(--degree)); 
+		writing-mode: vertical-rl;
+		text-align: center;
+		color: white;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	
+	.nav-link {
+		padding: 10px 0;
+		background-color: rgb(61 2 2 / 58%);
+	}
+
+	.active {
+		background-color: rgb(61 2 2);
+	}
 </style>
 
 </html>

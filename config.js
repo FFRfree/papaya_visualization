@@ -4,9 +4,39 @@ papaya.data.Atlas = papaya.data.Atlas || {};
 
 let core_data = "core_data"
 
+var params = [];
+
+const drawColor2Surface = () => {
+    const surface = papayaContainers[0].viewer.surfaces[0]
+    const viewer = papayaContainers[0].viewer
+    // 这里1
+    const volume = papayaContainers[0].viewer.screenVolumes[1].volume
+    console.log(surface, viewer,volume)
+    
+    console.log(surface.parametricData)
+
+    const surfaceDataUrl = params['coloredSurface']
+    console.log("loading surface", surfaceDataUrl)
+    // const surfaceDataUrl = 'otherData//sub_all_5k_8k_gradient1_group.func.gii'
+    fetch(surfaceDataUrl, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'text/xml',
+        },
+    }).then(res=>res.text()).then(_data=>{
+
+        const data = gifti.parse(_data).getZScoresDataArray().getData()
+        surface.parametricData.push({
+            viewer: viewer,
+            volume: volume,
+            data: data,
+        })
+        viewer.drawViewer(!0)
+        console.log('done')
+    })
+}
 
 papaya.data.configureAtlas = async function (viewer) {
-    console.log('configureAtlas')
     if (this.atlas === null) {
         return;
     }
@@ -26,7 +56,10 @@ papaya.data.configureAtlas = async function (viewer) {
         }
     }
 
+    drawColor2Surface()
+
     let loadVolume = (viewer.container.preferences.showVolumeBoundaries === "Yes");
+    console.log("showvolume? ",viewer.container.preferences.showVolumeBoundaries)
     let ctr = 0;
     while (ctr < viewer.screenVolumes.length) {
         // Unload current boundary if desired
@@ -86,7 +119,7 @@ papaya.data.configureAtlas = async function (viewer) {
         }
     }
 
-    drawColor2Surface()
+    // drawColor2Surface()
 }
 
 function loadatlas(url, boundaryData) {
@@ -435,6 +468,49 @@ papaya.data.Atlases["vPaxinos"] = {
     }
 };
 
+const cerb_labels = {
+    lobe1_17: [
+      { index: 0, content: ": :background:" },
+      { index: 1, content: ": :I : Lingula I" },
+      { index: 2, content: ": :II : Central lobule II" },
+      { index: 3, content: ": :III : Culmen III" },
+      { index: 4, content: ": :IV : Declive IV" },
+      { index: 5, content: ": :V : lobule V" },
+      { index: 6, content: ": :VI : Folium VI" },
+      { index: 7, content: ": :VII : Tuber VII" },
+      { index: 8, content: ": :VIII : LPyramid VIII" },
+      { index: 9, content: ": :IX : Uvula IX" },
+      { index: 10, content: ": :X : Nodulus X" },
+      { index: 11, content: ": :FL : Flocculus" },
+      { index: 12, content: ": :COP : Copula" },
+      { index: 13, content: ": :PAR : Paramedian lobule" },
+      { index: 14, content: ": :SIM : Simplex lobule" },
+      { index: 15, content: ": :Crus I : Crus I" },
+      { index: 16, content: ": :Crus II : Crus II" },
+      { index: 17, content: ": :PFL : Paraflocculus" }
+    ],
+    lobe1_13: [
+      { index: 0, content: ": :background:" },
+      {
+        index: 1, content: ": :I-IV : Lingula I and Central lobule II and Culmen III and Declive IV"
+      },
+      { index: 5, content: ": :V : lobule V" },
+      { index: 6, content: ": :VI : Folium VI" },
+      { index: 7, content: ": :VII : Tuber VII" },
+      { index: 8, content: ": :VIII : LPyramid VIII" },
+      { index: 9, content: ": :IX-X : Uvula IX and Nodulus X" },
+      { index: 11, content: ": :FL : Flocculus" },
+      { index: 12, content: ": :COP : Copula" },
+      { index: 13, content: ": :PAR : Paramedian lobule" },
+      { index: 14, content: ": :SIM : Simplex lobule" },
+      { index: 15, content: ": :Crus I : Crus I" },
+      { index: 16, content: ": :Crus II : Crus II" },
+      { index: 17, content: ": :PFL : Paraflocculus" }
+  
+    ]
+  
+  }
+
 papaya.data.Atlases["v4"] = {
     labels: {
         atlas: {
@@ -725,8 +801,40 @@ papaya.data.Atlases['v2_P'] = {
 
 papaya.data.Atlases['sub_all_gradient'] = papaya.data.Atlases['vPaxinos']
 papaya.data.Atlases['sub_all_5k_8k_gradient'] = papaya.data.Atlases['vPaxinos']
-papaya.data.Atlases['CERB_17lobe'] = papaya.data.Atlases['vPaxinos']
-papaya.data.Atlases['CERB_13lobe'] = papaya.data.Atlases['vPaxinos']
+papaya.data.Atlases['CERB_17lobe'] = {
+    labels: {
+        atlas: {
+            data: {
+                label: cerb_labels.lobe1_17
+            },
+            header: {
+                images: {
+                    summaryimagefile: "CERB_17lobe"
+                },
+                name: "CERB_17lobe 全名",
+                type: "Label"
+            },
+            version: 2
+        }
+    },
+}
+papaya.data.Atlases['CERB_13lobe'] = {
+    labels: {
+        atlas: {
+            data: {
+                label: cerb_labels.lobe1_13
+            },
+            header: {
+                images: {
+                    summaryimagefile: "CERB_13lobe"
+                },
+                name: "CERB_13lobe 全名",
+                type: "Label"
+            },
+            version: 2
+        }
+    },
+}
 
 
 var papayaLoadableImages = [
@@ -897,17 +1005,15 @@ var papayaLoadableImages = [
 let atlas = document.querySelector('.papaya').getAttribute('atlas')
 papaya.data.Atlas = papaya.data.Atlases[atlas]
 
-var params = [];
-
 
 const setParams = (num)=>{
     params["images"] = ['otherData/Template_sym_MTR_80um_CERB_small.nii.gz', papayaLoadableImages[num].url];
-    params[papayaLoadableImages[num].url.split('/')[1]] = {
-        min: -0.1,
-        max: 0.1,
-        lut: "Custom1",
-        // alpha: 0.4
-    };
+    // params[papayaLoadableImages[num].url.split('/')[1]] = {
+    //     min: -0.1,
+    //     max: 0.1,
+    //     lut: "Custom1",
+    //     // alpha: 0.4
+    // };
     params["atlas"] = papayaLoadableImages[num].url;
     /** surface底板 */
     params["surfaces"] = ['otherData/surfFS.CERB.pial_shifti.surf(1).gii']
@@ -949,28 +1055,46 @@ switch (atlas) {
 
     case "sub_all_gradient":
         setParams(22)
+        params[papayaLoadableImages[22].url.split('/')[1]] = {
+            min: -0.1,
+            max: 0.1,
+            lut: "Custom1",
+            // alpha: 0.4
+        };
         break
 
     case "sub_all_5k_8k_gradient":
         setParams(23)
+        params[papayaLoadableImages[23].url.split('/')[1]] = {
+            min: -0.3,
+            max: 0.3,
+            lut: "Custom1",
+            // alpha: 0.4
+        };
         break
-    
+        
     case "CERB_17lobe":
         setParams(24)
+        /** 覆盖下原来的颜色配置 */
+        params[papayaLoadableImages[24].url.split('/')[1]] = {
+            min: 0,
+            max: 17,
+            lut: "Custom1",
+            // alpha: 0.4
+        };
         break
 
     case "CERB_13lobe":
         setParams(25)
+        /** 覆盖下原来的颜色配置 */
+        params[papayaLoadableImages[25].url.split('/')[1]] = {
+            min: 0,
+            max: 17,
+            lut: "Custom1",
+            // alpha: 0.4
+        };
         break
-        // params["images"] = ['otherData/Template_sym_MTR_80um_CERB_small.nii.gz', papayaLoadableImages[22].url];
-        // params["atlas"] = papayaLoadableImages[22].url;
-        // /** surface底板 */
-        // params["surfaces"] = ['otherData/surfFS.CERB.pial_shifti.surf(1).gii']
-        // /** 后续drawColor2Surface函数将其画入viewer */
-        // params["coloredSurface"] = papayaLoadableImages[22].coloredSurface
 
-    // case ""
-    //     break;
     default:
         break;
 }
@@ -1190,32 +1314,4 @@ params['surfaceBackground'] = 'Black'
 params["radiological"] = true
 
 
-const drawColor2Surface = () => {
-    const surface = papayaContainers[0].viewer.surfaces[0]
-    const viewer = papayaContainers[0].viewer
-    // 这里1
-    const volume = papayaContainers[0].viewer.screenVolumes[1].volume
-    console.log(surface, viewer,volume)
-    
-    console.log(surface.parametricData)
 
-    const surfaceDataUrl = params['coloredSurface']
-    console.log("loading surface", surfaceDataUrl)
-    // const surfaceDataUrl = 'otherData//sub_all_5k_8k_gradient1_group.func.gii'
-    fetch(surfaceDataUrl, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'text/xml',
-        },
-    }).then(res=>res.text()).then(_data=>{
-
-        const data = gifti.parse(_data).getZScoresDataArray().getData()
-        surface.parametricData.push({
-            viewer: viewer,
-            volume: volume,
-            data: data,
-        })
-        viewer.drawViewer(!0)
-        console.log('done')
-    })
-}
