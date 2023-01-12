@@ -1009,7 +1009,7 @@ if(!atlas || atlas === ''){
     atlas = 'vPaxinos'
 }
 console.log('loading:', atlas)
-const target = document.querySelector(`a[href="/?atlas=${atlas}"]`)
+const target = document.querySelector(`a[href="?atlas=${atlas}"]`)
 target.className = target.className + ' ' + 'active'
 papaya.data.Atlas = papaya.data.Atlases[atlas]
 
