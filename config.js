@@ -470,46 +470,48 @@ papaya.data.Atlases["vPaxinos"] = {
 
 const cerb_labels = {
     lobe1_17: [
-      { index: 0, content: ": :background:" },
-      { index: 1, content: ": :I : Lingula I" },
-      { index: 2, content: ": :II : Central lobule II" },
-      { index: 3, content: ": :III : Culmen III" },
-      { index: 4, content: ": :IV : Declive IV" },
-      { index: 5, content: ": :V : lobule V" },
-      { index: 6, content: ": :VI : Folium VI" },
-      { index: 7, content: ": :VII : Tuber VII" },
-      { index: 8, content: ": :VIII : LPyramid VIII" },
-      { index: 9, content: ": :IX : Uvula IX" },
-      { index: 10, content: ": :X : Nodulus X" },
-      { index: 11, content: ": :FL : Flocculus" },
-      { index: 12, content: ": :COP : Copula" },
-      { index: 13, content: ": :PAR : Paramedian lobule" },
-      { index: 14, content: ": :SIM : Simplex lobule" },
-      { index: 15, content: ": :Crus I : Crus I" },
-      { index: 16, content: ": :Crus II : Crus II" },
-      { index: 17, content: ": :PFL : Paraflocculus" }
+        {index: 0,content:": :background:" },
+        {index: 1,content:": :I : Lingula I" },
+        {index: 2,content:": :II : Central lobule II" },
+        {index: 3,content:": :III : Culmen III" },
+        {index: 4,content:": :IV : Declive IV" },
+        {index: 5,content:": :V : lobule V" },
+        {index: 6,content:": :VI : Folium VI" },
+        {index: 7,content:": :VII : Tuber VII" },
+        {index: 8,content:": :VIII : LPyramid VIII" },
+        {index: 9,content:": :IX : Uvula IX" },
+        {index: 10,content:": :X : Nodulus X" },
+        {index: 11,content:": :FL : Flocculus" },
+        {index: 12,content:": :COP : Copula" },
+        {index: 13,content:": :PAR : Paramedian lobule" },
+        {index: 14,content:": :SIM : Simplex lobule" },
+        {index: 15,content:": :Crus I : Crus I" },
+        {index: 16,content:": :Crus II : Crus II" },
+        {index: 17,content:": :PFL : Paraflocculus" },
+        {index: 18,content:": :FN : fastigial nucleus " },
+        {index: 19,content:": :IN : interpositus nucleus" },
+        {index: 20,content:": :DN : dentate  nucleus" }
     ],
     lobe1_13: [
-      { index: 0, content: ": :background:" },
-      {
-        index: 1, content: ": :I-IV : Lingula I and Central lobule II and Culmen III and Declive IV"
-      },
-      { index: 5, content: ": :V : lobule V" },
-      { index: 6, content: ": :VI : Folium VI" },
-      { index: 7, content: ": :VII : Tuber VII" },
-      { index: 8, content: ": :VIII : LPyramid VIII" },
-      { index: 9, content: ": :IX-X : Uvula IX and Nodulus X" },
-      { index: 11, content: ": :FL : Flocculus" },
-      { index: 12, content: ": :COP : Copula" },
-      { index: 13, content: ": :PAR : Paramedian lobule" },
-      { index: 14, content: ": :SIM : Simplex lobule" },
-      { index: 15, content: ": :Crus I : Crus I" },
-      { index: 16, content: ": :Crus II : Crus II" },
-      { index: 17, content: ": :PFL : Paraflocculus" }
-  
+        {index: 0,content:": :background:" },
+        {index: 1,content:": :I-IV : Lingula I and Central lobule II and Culmen III and Declive IV" },
+        {index: 5,content:": :V : lobule V" },
+        {index: 6,content:": :VI : Folium VI" },
+        {index: 7,content:": :VII : Tuber VII" },
+        {index: 8,content:": :VIII : LPyramid VIII" },
+        {index: 9,content:": :IX-X : Uvula IX and Nodulus X" },
+        {index: 11,content:": :FL : Flocculus" },
+        {index: 12,content:": :COP : Copula" },
+        {index: 13,content:": :PAR : Paramedian lobule" },
+        {index: 14,content:": :SIM : Simplex lobule" },
+        {index: 15,content:": :Crus I : Crus I" },
+        {index: 16,content:": :Crus II : Crus II" },
+        {index: 17,content:": :PFL : Paraflocculus" },
+        {index: 18,content:": :FN : fastigial nucleus " },
+        {index: 19,content:": :IN : interpositus nucleus" },
+        {index: 20,content:": :DN : dentate  nucleus" }
     ]
-  
-  }
+}
 
 papaya.data.Atlases["v4"] = {
     labels: {
@@ -980,23 +982,37 @@ var papayaLoadableImages = [
     // 小脑
     { //22
         name: "sub_all_gradient",
-        url: "otherData/change_sub_all_gradient1.nii.gz",
-        coloredSurface: "otherData/sub_all_gradient1_group.func.gii"
+        nicename: "MBMv5_Intra-cerebellar gradient-1",
+        // url: "otherData/MBMv5_Intra-cerebellar gradient-1.nii.gz",
+        // coloredSurface: "otherData/sub_all_gradient1_group.func.gii",
+        url: "otherData/MBMv5_Intra-cerebellar gradient-1.nii.gz",
+        coloredSurface: "otherData/MBMv5_Intra-cerebellar gradient-1.func.gii",
+        hide: false
     },
     { //23
         name: "sub_all_5k_8k_gradient",
-        url: "otherData/change_sub_all_5k_8k_gradient1.nii.gz",
-        coloredSurface: "otherData/sub_all_5k_8k_gradient1_group.func.gii"
+        nicename: "MBMv5_Cerebello-cerebral gradient-1",
+        // url: "otherData/MBMv5_Cerebello-cerebral gradient-1.nii.gz",
+        // coloredSurface: "otherData/sub_all_5k_8k_gradient1_group.func.gii",
+        url: "otherData/MBMv5_Cerebello-cerebellar gradient -1.nii.gz",
+        coloredSurface: "otherData/MBMv5_Cerebello-cerebellar gradient -1.func.gii",
+        hide: false
     },
     { //24
         name: "CERB_17lobe",
-        url: "otherData/atlas_Marmoset_CERB_17lobe_change_gmmasked.nii.gz",
+        url: "otherData/MBMv5_17lobe+nuclei.nii.gz",
         coloredSurface: "otherData/atlas_Marmoset_CERB_17lobe_group.shape.gii"
     },
     { //25
         name: "CERB_13lobe",
-        url: "otherData/atlas_Marmoset_CERB_13lobe_change_gmmasked.nii.gz",
+        url: "otherData/MBMv5_13lobe+nuclei.nii.gz",
         coloredSurface: "otherData/atlas_Marmoset_CERB_13lobe_group.shape.gii"
+    },
+    { //26 核团
+        name: "nuclei_neocortex_gradient-1",
+        nicename: "nuclei_neocortex_gradient-1",
+        url: "otherData/MBMv5_nuclei_neocortex_gradient-1.nii.gz",
+        hide: false
     }
 ];
 
@@ -1006,7 +1022,7 @@ var papayaLoadableImages = [
 const searchParams = new URLSearchParams(location.search)
 let atlas = searchParams.get('atlas')
 if(!atlas || atlas === ''){
-    atlas = 'vPaxinos'
+    atlas = 'CERB_13lobe'
 }
 console.log('loading:', atlas)
 const target = document.querySelector(`a[href="?atlas=${atlas}"]`)
@@ -1063,22 +1079,10 @@ switch (atlas) {
 
     case "sub_all_gradient":
         setParams(22)
-        params[papayaLoadableImages[22].url.split('/')[1]] = {
-            min: -0.1,
-            max: 0.1,
-            lut: "Custom1",
-            // alpha: 0.4
-        };
         break
 
     case "sub_all_5k_8k_gradient":
         setParams(23)
-        params[papayaLoadableImages[23].url.split('/')[1]] = {
-            min: -0.18,
-            max: 0.18,
-            lut: "Custom2",
-            // alpha: 0.4
-        };
         break
         
     case "CERB_17lobe":
@@ -1086,8 +1090,8 @@ switch (atlas) {
         /** 覆盖下原来的颜色配置 */
         params[papayaLoadableImages[24].url.split('/')[1]] = {
             min: 0,
-            max: 17,
-            lut: "Custom1",
+            max: 20,
+            lut: "Spectrum",
             // alpha: 0.4
         };
         break
@@ -1097,12 +1101,15 @@ switch (atlas) {
         /** 覆盖下原来的颜色配置 */
         params[papayaLoadableImages[25].url.split('/')[1]] = {
             min: 0,
-            max: 17,
-            lut: "Custom1",
+            max: 20,
+            lut: "Spectrum",
             // alpha: 0.4
         };
         break
 
+    case "MBMv5_gradients":
+        setParams(26)
+        break
     default:
         break;
 }
@@ -1262,7 +1269,7 @@ params["luts"] = [
             [0.9932885906040256, 62, 10, 205],
         ],
     },
-    {
+    { // offset for MBMv5_Intra-cerebellar gradient-1.nii.gz -0.1~0.058
         name: "Custom1",
         data: [
             [0, 0,1,1],
@@ -1287,6 +1294,27 @@ params["luts"] = [
         ]
     }
 ];
+
+params[papayaLoadableImages[23].url.split('/')[1]] = {
+    min: 0.8,
+    max: 1.2,
+    lut: "Custom2",
+    // alpha: 0.4
+};
+params[papayaLoadableImages[22].url.split('/')[1]] = {
+    min: 0.9,
+    max: 1.1,
+    lut: "Custom1",
+    // alpha: 0.4
+};
+params['MBMv5_nuclei_neocortex_gradient-1.nii.gz'] = {
+    min: 0.9,
+    max: 1.1,
+    lut: "Custom2",
+    // alpha: 0.4
+};
+
+//------
 params["atlas_MBM_cortex_vPaxinos_both_same.nii.gz"] = {
     min: 0,
     max: 259,
@@ -1325,7 +1353,6 @@ params["NIH_combined_wm_sub_cortexH_reindex.nii.gz"] = {
     lut: "Custom",
     alpha: 0.4
 };
-
 params['template_myelinmap_brain.nii.gz'] = {
     min: 0,
     max: 2000
