@@ -1002,7 +1002,15 @@ var papayaLoadableImages = [
 
 
 // 这边应该有一个判断 然后选择atlas的逻辑
-let atlas = document.querySelector('.papaya').getAttribute('atlas')
+// let atlas = document.querySelector('.papaya').getAttribute('atlas')
+const searchParams = new URLSearchParams(location.search)
+let atlas = searchParams.get('atlas')
+if(!atlas || atlas === ''){
+    atlas = 'vPaxinos'
+}
+console.log('loading:', atlas)
+const target = document.querySelector(`a[href="/?atlas=${atlas}"]`)
+target.className = target.className + ' ' + 'active'
 papaya.data.Atlas = papaya.data.Atlases[atlas]
 
 
@@ -1066,9 +1074,9 @@ switch (atlas) {
     case "sub_all_5k_8k_gradient":
         setParams(23)
         params[papayaLoadableImages[23].url.split('/')[1]] = {
-            min: -0.3,
-            max: 0.3,
-            lut: "Custom1",
+            min: -0.18,
+            max: 0.18,
+            lut: "Custom2",
             // alpha: 0.4
         };
         break
@@ -1263,6 +1271,19 @@ params["luts"] = [
             [0.65,1,128/255,104/255],
             [0.75,1,0.8,0],
             [0.85,239/255,1,0]
+        ]
+    },{
+        name: "Custom2",
+        data: [
+            [0, 90/255,255/255,255/255],
+            [0.25,0,0,255/255 ],
+            // [0.25, 0,0.5,0.5]
+            [0.5, 0,0,0],
+            // [0.65,1,128/255,104/255],
+            // [0.75, 0.5,0.5,0],
+            [0.75,1,0,0],
+            // [0.85,239/255,1,0]
+            [1, 1,1,30/255]
         ]
     }
 ];

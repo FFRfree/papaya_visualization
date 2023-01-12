@@ -1,0 +1,46 @@
+body {
+  background-color: black;
+}
+
+.papaya-wrapper {
+  border: 1px solid gray;
+  z-index: 1;
+  width: 120vh
+}
+
+/* .text-rotate {
+  transform: rotate(90deg);
+  height: 25%;
+} */
+.tabs-right {
+  /* -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);  */
+  writing-mode: vertical-rl;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.tabs-left {
+  --degree: -180deg;
+  transform: rotate(var(--degree));
+  -moz-transform: rotate(var(--degree));
+  -webkit-transform: rotate(var(--degree)); 
+  writing-mode: vertical-rl;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav-link {
+  padding: 10px 0;
+  background-color: rgb(61 2 2 / 50%);
+}
+
+.active {
+  background-color: rgb(103, 1, 1);
+}
