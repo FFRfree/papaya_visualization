@@ -10,12 +10,22 @@ const drawColor2Surface = () => {
     const surface = papayaContainers[0].viewer.surfaces[0]
     const viewer = papayaContainers[0].viewer
     // 这里1
-    const volume = papayaContainers[0].viewer.screenVolumes[1].volume
+    const volume = papayaContainers[0].viewer.screenVolumes.at(-1).volume
     console.log(surface, viewer,volume)
     
     console.log(surface.parametricData)
 
-    const surfaceDataUrl = params['coloredSurface']
+    const currFileName = volume.fileName
+    const params = volume.params
+    const surfaceDataUrl = params[currFileName]?.coloredSurface
+
+    // console.log(currFileName, params, surfaceDataUrl)
+
+    // const surfaceDataUrl = params['coloredSurface']
+    if(!surfaceDataUrl){
+        console.log(currFileName+' corresponding surface not found')
+        return
+    }
     console.log("loading surface", surfaceDataUrl)
     // const surfaceDataUrl = 'otherData//sub_all_5k_8k_gradient1_group.func.gii'
     fetch(surfaceDataUrl, {
@@ -40,84 +50,87 @@ papaya.data.configureAtlas = async function (viewer) {
     if (this.atlas === null) {
         return;
     }
-    let boundaryData = viewer.atlas.boundaryData;
-
-    let boundaryVolumes = [];
-    for (let key in papaya.data.Atlases) {
-        try {
-            if (papaya.data.Atlases.hasOwnProperty(key)) {
-                let volume = papaya.data.Atlases[key].atlas.boundaryData.volume;
-                if (volume && volume !== boundaryData.volume) {
-                    boundaryVolumes.push(volume);
-                }
-            }
-        } catch (err) {
-            // Unable to get volume, cannot be open
-        }
-    }
 
     drawColor2Surface()
+    return
 
-    let loadVolume = (viewer.container.preferences.showVolumeBoundaries === "Yes");
-    console.log("showvolume? ",viewer.container.preferences.showVolumeBoundaries)
-    let ctr = 0;
-    while (ctr < viewer.screenVolumes.length) {
-        // Unload current boundary if desired
-        if (viewer.screenVolumes[ctr].volume === boundaryData.volume) {
-            if (!loadVolume) {
-                viewer.closeOverlay(ctr);
-                break;
-            }
-            loadVolume = false;
-        }
+    // let boundaryData = viewer.atlas.boundaryData;
 
-        // Unloaded other boundary files
-        for (let ctr2 = 0; ctr2 < boundaryVolumes.length; ctr2++) {
-            if (viewer.screenVolumes[ctr].volume === boundaryVolumes[ctr2]) {
-                viewer.closeOverlay(ctr);
-                break;
-            }
-        }
-        ctr++;
-    }
+    // let boundaryVolumes = [];
+    // for (let key in papaya.data.Atlases) {
+    //     try {
+    //         if (papaya.data.Atlases.hasOwnProperty(key)) {
+    //             let volume = papaya.data.Atlases[key].atlas.boundaryData.volume;
+    //             if (volume && volume !== boundaryData.volume) {
+    //                 boundaryVolumes.push(volume);
+    //             }
+    //         }
+    //     } catch (err) {
+    //         // Unable to get volume, cannot be open
+    //     }
+    // }
 
-    // Load the required image boundary
-    if (loadVolume) {
-        if (boundaryData.volume && viewer.loadingVolume === null) {
-            viewer.loadingVolume = boundaryData.volume;
-            viewer.initializeOverlay();
-        } else {
-            viewer.loadOverlay([viewer.container.findLoadableImage(boundaryData.boundaryimagefile, false).url],
-                true, false, false);
-            boundaryData.volume = viewer.loadingVolume;
-        }
-    }
 
-    // Load surface boundary data if not loaded
-    if (boundaryData && boundaryData.data == null) {
-        let result = viewer.container.findLoadableImage(boundaryData.boundarysurfacefile, false);
-        if (result.url) {
-            let data = await loadatlas(result.url, boundaryData);
-            let gii = gifti.parse(data);
-            if (gii.getZScoresDataArray()) {
-                boundaryData.data = gii.getZScoresDataArray().getData();
-                boundaryData.range.min = Math.min(...boundaryData.data);
-                boundaryData.range.max = Math.max(...boundaryData.data);
-            }
-        }
-    }
+    // let loadVolume = (viewer.container.preferences.showVolumeBoundaries === "Yes");
+    // console.log("showvolume? ",viewer.container.preferences.showVolumeBoundaries)
+    // let ctr = 0;
+    // while (ctr < viewer.screenVolumes.length) {
+    //     // Unload current boundary if desired
+    //     if (viewer.screenVolumes[ctr].volume === boundaryData.volume) {
+    //         if (!loadVolume) {
+    //             viewer.closeOverlay(ctr);
+    //             break;
+    //         }
+    //         loadVolume = false;
+    //     }
 
-    // Display the surface boundaries
-    if (viewer.surfaces.length > 0) {
-        let surface = viewer.surfaces[0];
-        boundaryData = (boundaryData && viewer.container.preferences.showSurfaceBoundaries === "Yes") ? boundaryData : null;
+    //     // Unloaded other boundary files
+    //     for (let ctr2 = 0; ctr2 < boundaryVolumes.length; ctr2++) {
+    //         if (viewer.screenVolumes[ctr].volume === boundaryVolumes[ctr2]) {
+    //             viewer.closeOverlay(ctr);
+    //             break;
+    //         }
+    //     }
+    //     ctr++;
+    // }
 
-        if (boundaryData !== surface.boundaryData) {
-            surface.boundaryData = boundaryData;
-            surface.generateColorData();
-            viewer.drawViewer();
-        }
-    }
+    // // Load the required image boundary
+    // if (loadVolume) {
+    //     if (boundaryData.volume && viewer.loadingVolume === null) {
+    //         viewer.loadingVolume = boundaryData.volume;
+    //         viewer.initializeOverlay();
+    //     } else {
+    //         viewer.loadOverlay([viewer.container.findLoadableImage(boundaryData.boundaryimagefile, false).url],
+    //             true, false, false);
+    //         boundaryData.volume = viewer.loadingVolume;
+    //     }
+    // }
+
+    // // Load surface boundary data if not loaded
+    // if (boundaryData && boundaryData.data == null) {
+    //     let result = viewer.container.findLoadableImage(boundaryData.boundarysurfacefile, false);
+    //     if (result.url) {
+    //         let data = await loadatlas(result.url, boundaryData);
+    //         let gii = gifti.parse(data);
+    //         if (gii.getZScoresDataArray()) {
+    //             boundaryData.data = gii.getZScoresDataArray().getData();
+    //             boundaryData.range.min = Math.min(...boundaryData.data);
+    //             boundaryData.range.max = Math.max(...boundaryData.data);
+    //         }
+    //     }
+    // }
+
+    // // Display the surface boundaries
+    // if (viewer.surfaces.length > 0) {
+    //     let surface = viewer.surfaces[0];
+    //     boundaryData = (boundaryData && viewer.container.preferences.showSurfaceBoundaries === "Yes") ? boundaryData : null;
+
+    //     if (boundaryData !== surface.boundaryData) {
+    //         surface.boundaryData = boundaryData;
+    //         surface.generateColorData();
+    //         viewer.drawViewer();
+    //     }
+    // }
 
     // drawColor2Surface()
 }
@@ -801,8 +814,6 @@ papaya.data.Atlases['v2_P'] = {
     },
 }
 
-papaya.data.Atlases['sub_all_gradient'] = papaya.data.Atlases['vPaxinos']
-papaya.data.Atlases['sub_all_5k_8k_gradient'] = papaya.data.Atlases['vPaxinos']
 papaya.data.Atlases['CERB_17lobe'] = {
     labels: {
         atlas: {
@@ -837,6 +848,9 @@ papaya.data.Atlases['CERB_13lobe'] = {
         }
     },
 }
+papaya.data.Atlases['sub_all_gradient'] = papaya.data.Atlases['CERB_17lobe']
+papaya.data.Atlases['sub_all_5k_8k_gradient'] = papaya.data.Atlases['CERB_17lobe']
+papaya.data.Atlases['MBMv5_gradients'] = papaya.data.Atlases['CERB_17lobe']
 
 
 var papayaLoadableImages = [
@@ -857,19 +871,19 @@ var papayaLoadableImages = [
         name: "template_myelinmap_brain",
         nicename: "template_myelinmap",
         url: "data/template_myelinmap_brain.nii.gz",
-        hide: false
+        hide: true
     },
     {//3
         name: "template_T1w_brain",
         nicename: "template_T1w",
         url: "data/template_T1w_brain.nii.gz",
-        hide: false
+        hide: true
     },
     { //4
         name: "template_T2w_brain",
         nicename: "template_T2w",
         url: "data/template_T2w_brain.nii.gz",
-        hide: false
+        hide: true
     },
     { //5
         name: 'graymid',
@@ -907,13 +921,13 @@ var papayaLoadableImages = [
         name: 'Network_primary',
         nicename: "parcellation_primary",
         url: "data" + '/atlas_MBMv4_networks_parcellation_primary.nii.gz',
-        hide: false
+        hide: true
     },
     { //11
         name: 'Network_secondary',
         nicename: "parcellation_secondary",
         url: "data" + '/atlas_MBMv4_networks_parcellation_secondary.nii.gz',
-        hide: false
+        hide: true
     },
     { //12
         name: 'v4 surface label',
@@ -946,75 +960,139 @@ var papayaLoadableImages = [
     { // 16 
         name: 'v4_surface_boundaries',
         // nicename: 'vH surface',
-        url: 'data' + '/GZipBase64Binary_surfFS3.rh.MBMv4_cortex_parcellation.boundary.func.gii'
+        url: 'data' + '/GZipBase64Binary_surfFS3.rh.MBMv4_cortex_parcellation.boundary.func.gii',
+        hide: true
     },
     { // 17 
         name: 'vH_surface_boundaries',
         // nicename: 'vH surface',
-        url: 'data' + '/GZipBase64Binary_surfFS.rh.MBM_cortex_vH_boundary.func.gii'
+        url: 'data' + '/GZipBase64Binary_surfFS.rh.MBM_cortex_vH_boundary.func.gii',
+        hide: true
     },
     { // 18 
         name: 'vNetwork_surface_boundaries',
         // nicename: 'vH surface',
-        url: 'data' + '/GZipBase64Binary_surfFS.rh.MBMv4_networks_parcellation_primary_boundary.func.gii'
+        url: 'data' + '/GZipBase64Binary_surfFS.rh.MBMv4_networks_parcellation_primary_boundary.func.gii',
+        hide: true
     },
     // ------------
     // v2 template
     { //19
         name: "Template_sym_FA_80um_char",
         nicename: "Template_sym_FA_80um_char",
-        url: "data/Template_sym_FA_80um_char.nii.gz"
+        url: "data/Template_sym_FA_80um_char.nii.gz",
+        hide: true
     },
     // v2_P
     { //20
         hide: !0,
         name: "NIH_combined_wm_sub_cortexP_reindex",
         nicename: "Atlas",
-        url: "data/NIH_combined_wm_sub_cortexP_reindex.nii.gz"
+        url: "data/NIH_combined_wm_sub_cortexP_reindex.nii.gz",
+        hide: true
+
     },
     // v2_H
     { //21
         name: "NIH_combined_wm_sub_cortexH_reindex",
         nicename: "Atlas",
-        url: "data/NIH_combined_wm_sub_cortexH_reindex.nii.gz"
+        url: "data/NIH_combined_wm_sub_cortexH_reindex.nii.gz",
+        hide: true
     },
     // ----------
     // 小脑
     { //22
-        name: "sub_all_gradient",
-        nicename: "MBMv5_Intra-cerebellar gradient-1",
-        // url: "otherData/MBMv5_Intra-cerebellar gradient-1.nii.gz",
-        // coloredSurface: "otherData/sub_all_gradient1_group.func.gii",
-        url: "otherData/MBMv5_Intra-cerebellar gradient-1.nii.gz",
-        coloredSurface: "otherData/MBMv5_Intra-cerebellar gradient-1.func.gii",
-        hide: false
-    },
-    { //23
-        name: "sub_all_5k_8k_gradient",
-        nicename: "MBMv5_Cerebello-cerebral gradient-1",
-        // url: "otherData/MBMv5_Cerebello-cerebral gradient-1.nii.gz",
-        // coloredSurface: "otherData/sub_all_5k_8k_gradient1_group.func.gii",
-        url: "otherData/MBMv5_Cerebello-cerebellar gradient -1.nii.gz",
-        coloredSurface: "otherData/MBMv5_Cerebello-cerebellar gradient -1.func.gii",
-        hide: false
-    },
-    { //24
         name: "CERB_17lobe",
         url: "otherData/MBMv5_17lobe+nuclei.nii.gz",
-        coloredSurface: "otherData/atlas_Marmoset_CERB_17lobe_group.shape.gii"
+        coloredSurface: "otherData/atlas_Marmoset_CERB_17lobe_group.shape.gii",
+        hide: true
     },
-    { //25
+    { //23
         name: "CERB_13lobe",
         url: "otherData/MBMv5_13lobe+nuclei.nii.gz",
-        coloredSurface: "otherData/atlas_Marmoset_CERB_13lobe_group.shape.gii"
+        coloredSurface: "otherData/atlas_Marmoset_CERB_13lobe_group.shape.gii",
+        hide: true
     },
-    { //26 核团
+    // ------
+    // gradients 1~3 nuclei intra cerebello
+    { //24 核团
         name: "nuclei_neocortex_gradient-1",
         nicename: "nuclei_neocortex_gradient-1",
-        url: "otherData/MBMv5_nuclei_neocortex_gradient-1.nii.gz",
+        url: "gradients/MBMv5_nuclei_neocortex_gradient-1.nii.gz",
         hide: false
-    }
+    },
+    { //25
+        name: "sub_all_gradient",
+        nicename: "Intra-cerebellar gradient-1",
+        // url: "otherData/MBMv5_Intra-cerebellar gradient-1.nii.gz",
+        // coloredSurface: "otherData/sub_all_gradient1_group.func.gii",
+        url: "gradients/MBMv5_Intra-cerebellar gradient-1.nii.gz",
+        coloredSurface: "gradients/MBMv5_Intra-cerebellar gradient-1.func.gii",
+        hide: false
+    },
+    { //26
+        name: "sub_all_5k_8k_gradient",
+        nicename: "Cerebello-cerebral gradient-1",
+        // url: "otherData/MBMv5_Cerebello-cerebral gradient-1.nii.gz",
+        // coloredSurface: "otherData/sub_all_5k_8k_gradient1_group.func.gii",
+        url: "gradients/MBMv5_Cerebello-cerebellar gradient -1.nii.gz",
+        coloredSurface: "gradients/MBMv5_Cerebello-cerebellar gradient -1.func.gii",
+        hide: false
+    },
+    { //27
+        name: "MBMv5_nuclei_neocortex_gradient-2",
+        nicename: "nuclei_neocortex_gradient-2",
+        url: "gradients/MBMv5_nuclei_neocortex_gradient-2.nii.gz",
+        hide: false
+    },
+    { //28
+        name: "MBMv5_Intra-cerebellar gradient-2",
+        nicename: "Intra-cerebellar gradient-2",
+        url: "gradients/MBMv5_Intra-cerebellar gradient-2.nii.gz",
+        coloredSurface: "gradients/MBMv5_Intra-cerebellar gradient-2.func.gii",
+        hide: false
+    },
+    { //29
+        name: "MBMv5_Cerebello-cerebellar gradient -2",
+        nicename: "Cerebello-cerebellar gradient -2",
+        url: "gradients/MBMv5_Cerebello-cerebellar gradient -2.nii.gz",
+        coloredSurface: "gradients/MBMv5_Cerebello-cerebellar gradient -2.func.gii",
+        hide: false
+    },
+    { //30
+        name: "MBMv5_nuclei_neocortex_gradient-3",
+        nicename: "nuclei_neocortex_gradient-3",
+        url: "gradients/MBMv5_nuclei_neocortex_gradient-3.nii.gz",
+        hide: false
+    },
+    { //31
+        name: "MBMv5_Intra-cerebellar gradient-3",
+        nicename: "Intra-cerebellar gradient-3",
+        url: "gradients/MBMv5_Intra-cerebellar gradient-3.nii.gz",
+        coloredSurface: "gradients/MBMv5_Intra-cerebellar gradient-3.func.gii",
+        hide: false
+    },
+    { //32
+        name: "MBMv5_Cerebello-cerebellar gradient -3",
+        nicename: "Cerebello-cerebellar gradient -3",
+        url: "gradients/MBMv5_Cerebello-cerebellar gradient -3.nii.gz",
+        coloredSurface: "gradients/MBMv5_Cerebello-cerebellar gradient -3.func.gii",
+        hide: false
+    },
+    { // 小脑template
+        name: "Template_sym_MTR_80um_CERB_small",
+        nicename: "Template_sym_MTR_80um_CERB_small",
+        url: 'otherData/Template_sym_MTR_80um_CERB_small.nii.gz',
+        hide:false
+    },
 ];
+
+    // {
+    //     name: "",
+    //     nicename: "",
+    //     url: "",
+    //     hide: false
+    // }
 
 
 // 这边应该有一个判断 然后选择atlas的逻辑
@@ -1041,8 +1119,6 @@ const setParams = (num)=>{
     params["atlas"] = papayaLoadableImages[num].url;
     /** surface底板 */
     params["surfaces"] = ['otherData/surfFS.CERB.pial_shifti.surf(1).gii']
-    /** 后续drawColor2Surface函数会将其画入viewer */
-    params["coloredSurface"] = papayaLoadableImages[num].coloredSurface
 }
 
 switch (atlas) {
@@ -1077,18 +1153,18 @@ switch (atlas) {
         params["atlas"] = papayaLoadableImages[11].url;
         break;
 
-    case "sub_all_gradient":
-        setParams(22)
-        break
+    // case "sub_all_gradient":
+    //     setParams(22)
+    //     break
 
-    case "sub_all_5k_8k_gradient":
-        setParams(23)
-        break
+    // case "sub_all_5k_8k_gradient":
+    //     setParams(23)
+    //     break
         
     case "CERB_17lobe":
-        setParams(24)
+        setParams(22)
         /** 覆盖下原来的颜色配置 */
-        params[papayaLoadableImages[24].url.split('/')[1]] = {
+        params[papayaLoadableImages[22].url.split('/')[1]] = {
             min: 0,
             max: 20,
             lut: "Spectrum",
@@ -1097,9 +1173,9 @@ switch (atlas) {
         break
 
     case "CERB_13lobe":
-        setParams(25)
+        setParams(23)
         /** 覆盖下原来的颜色配置 */
-        params[papayaLoadableImages[25].url.split('/')[1]] = {
+        params[papayaLoadableImages[23].url.split('/')[1]] = {
             min: 0,
             max: 20,
             lut: "Spectrum",
@@ -1108,6 +1184,7 @@ switch (atlas) {
         break
 
     case "MBMv5_gradients":
+        /** 默认加载 MBMv5_Cerebello-cerebellar */
         setParams(26)
         break
     default:
@@ -1295,13 +1372,13 @@ params["luts"] = [
     }
 ];
 
-params[papayaLoadableImages[23].url.split('/')[1]] = {
+params[papayaLoadableImages[26].url.split('/')[1]] = {
     min: 0.8,
     max: 1.2,
     lut: "Custom2",
     // alpha: 0.4
 };
-params[papayaLoadableImages[22].url.split('/')[1]] = {
+params[papayaLoadableImages[25].url.split('/')[1]] = {
     min: 0.9,
     max: 1.1,
     lut: "Custom1",
@@ -1313,6 +1390,21 @@ params['MBMv5_nuclei_neocortex_gradient-1.nii.gz'] = {
     lut: "Custom2",
     // alpha: 0.4
 };
+params['MBMv5_Intra-cerebellar gradient-2.nii.gz'] = {
+    min: 0.9,
+    max: 1.1,
+    lut: "Custom2",
+};
+
+for(let i=27;i<33;i++){
+    const config = papayaLoadableImages[i]
+    const fileName = config.url.split('/').at(-1)
+    params[fileName] = {
+        min: 0.9,
+        max: 1.1,
+        lut: 'Custom2'
+    }
+}
 
 //------
 params["atlas_MBM_cortex_vPaxinos_both_same.nii.gz"] = {
@@ -1362,4 +1454,15 @@ params['surfaceBackground'] = 'Black'
 params["radiological"] = true
 
 
+/**  */
+papayaLoadableImages.slice(22).forEach(config=>{
+    if(!config.coloredSurface){
+        return
+    }
+    const fileName = config.url.split('/').at(-1)
+    params[fileName] = {
+        ...params[fileName],
+        coloredSurface: config.coloredSurface
+    }
+})
 
