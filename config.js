@@ -1005,12 +1005,22 @@ var papayaLoadableImages = [
         name: "CERB_17lobe",
         url: "otherData/MBMv5_17lobe+nuclei.nii.gz",
         coloredSurface: "otherData/atlas_Marmoset_CERB_17lobe_group.shape.gii",
+        lutsConfig: {
+            min: 0,
+            max: 20,
+            lut: "Spectrum",
+        },
         hide: true
     },
     { //23
         name: "CERB_13lobe",
         url: "otherData/MBMv5_13lobe+nuclei.nii.gz",
         coloredSurface: "otherData/atlas_Marmoset_CERB_13lobe_group.shape.gii",
+        lutsConfig: {
+            min: 0,
+            max: 20,
+            lut: "Spectrum",
+        },
         hide: true
     },
     // ------
@@ -1018,65 +1028,106 @@ var papayaLoadableImages = [
     { //24 核团
         name: "nuclei_neocortex_gradient-1",
         nicename: "nuclei_neocortex_gradient-1",
-        url: "gradients/MBMv5_nuclei_neocortex_gradient-1.nii.gz",
+        url: "gradients/short_MBMv5_nuclei_neocortex_gradient1.nii.gz",
+        lutsConfig: {
+            min: 850,
+            max: 1150,
+            lut: 'Custom2'
+        },
         hide: false
     },
     { //25
         name: "sub_all_gradient",
         nicename: "Intra-cerebellar gradient-1",
-        // url: "otherData/MBMv5_Intra-cerebellar gradient-1.nii.gz",
-        // coloredSurface: "otherData/sub_all_gradient1_group.func.gii",
-        url: "gradients/MBMv5_Intra-cerebellar gradient-1.nii.gz",
-        coloredSurface: "gradients/MBMv5_Intra-cerebellar gradient-1.func.gii",
+        url: "gradients/short_MBMv5_Intra-cerebellar_gradient1.nii.gz",
+        coloredSurface: "gradients/shortMBMv5_Intra-cerebellar_gradient1.func.gii",
+        lutsConfig: {
+            min: 900,
+            max: 1100,
+            lut: 'Custom2'
+        },
         hide: false
     },
     { //26
         name: "sub_all_5k_8k_gradient",
         nicename: "Cerebello-cerebral gradient-1",
-        // url: "otherData/MBMv5_Cerebello-cerebral gradient-1.nii.gz",
-        // coloredSurface: "otherData/sub_all_5k_8k_gradient1_group.func.gii",
-        url: "gradients/MBMv5_Cerebello-cerebellar gradient -1.nii.gz",
-        coloredSurface: "gradients/MBMv5_Cerebello-cerebellar gradient -1.func.gii",
+        url: "gradients/short_MBMv5_Cerebello-cerebellar_gradient1.nii.gz",
+        coloredSurface: "gradients/shortMBMv5_Cerebello-cerebellar_gradient1.func.gii",
+        lutsConfig: {
+            min: 850,
+            max: 1150,
+            lut: 'Custom2'
+        },
         hide: false
     },
     { //27
         name: "MBMv5_nuclei_neocortex_gradient-2",
         nicename: "nuclei_neocortex_gradient-2",
-        url: "gradients/MBMv5_nuclei_neocortex_gradient-2.nii.gz",
+        url: "gradients/short_MBMv5_nuclei_neocortex_gradient2.nii.gz",
+        lutsConfig: {
+            min: 850,
+            max: 1150,
+            lut: 'Custom2'
+        },
         hide: false
     },
     { //28
         name: "MBMv5_Intra-cerebellar gradient-2",
         nicename: "Intra-cerebellar gradient-2",
-        url: "gradients/MBMv5_Intra-cerebellar gradient-2.nii.gz",
-        coloredSurface: "gradients/MBMv5_Intra-cerebellar gradient-2.func.gii",
+        url: "gradients/short_MBMv5_Intra-cerebellar_gradient2.nii.gz",
+        coloredSurface: "gradients/shortMBMv5_Intra-cerebellar_gradient2.func.gii",
+        lutsConfig: {
+            min: 900,
+            max: 1100,
+            lut: 'Custom2'
+        },
         hide: false
     },
     { //29
         name: "MBMv5_Cerebello-cerebellar gradient -2",
         nicename: "Cerebello-cerebellar gradient -2",
-        url: "gradients/MBMv5_Cerebello-cerebellar gradient -2.nii.gz",
-        coloredSurface: "gradients/MBMv5_Cerebello-cerebellar gradient -2.func.gii",
+        url: "gradients/short_MBMv5_Cerebello-cerebellar_gradient2.nii.gz",
+        coloredSurface: "gradients/shortMBMv5_Cerebello-cerebellar_gradient2.func.gii",
+        lutsConfig: {
+            min: 920,
+            max: 1080,
+            lut: 'Custom2'
+        },
         hide: false
     },
     { //30
         name: "MBMv5_nuclei_neocortex_gradient-3",
         nicename: "nuclei_neocortex_gradient-3",
-        url: "gradients/MBMv5_nuclei_neocortex_gradient-3.nii.gz",
+        url: "gradients/short_MBMv5_nuclei_neocortex_gradient3.nii.gz",
+        lutsConfig: {
+            min: 850,
+            max: 1150,
+            lut: 'Custom2'
+        },
         hide: false
     },
     { //31
         name: "MBMv5_Intra-cerebellar gradient-3",
         nicename: "Intra-cerebellar gradient-3",
-        url: "gradients/MBMv5_Intra-cerebellar gradient-3.nii.gz",
-        coloredSurface: "gradients/MBMv5_Intra-cerebellar gradient-3.func.gii",
+        url: "gradients/short_MBMv5_Intra-cerebellar_gradient3.nii.gz",
+        coloredSurface: "gradients/shortMBMv5_Intra-cerebellar_gradient3.func.gii",
+        lutsConfig: {
+            min: 900,
+            max: 1100,
+            lut: 'Custom2'
+        },
         hide: false
     },
     { //32
         name: "MBMv5_Cerebello-cerebellar gradient -3",
         nicename: "Cerebello-cerebellar gradient -3",
-        url: "gradients/MBMv5_Cerebello-cerebellar gradient -3.nii.gz",
-        coloredSurface: "gradients/MBMv5_Cerebello-cerebellar gradient -3.func.gii",
+        url: "gradients/short_MBMv5_Cerebello-cerebellar_gradient3.nii.gz",
+        coloredSurface: "gradients/shortMBMv5_Cerebello-cerebellar_gradient3.func.gii",
+        lutsConfig: {
+            min: 940,
+            max: 1060,
+            lut: 'Custom2'
+        },
         hide: false
     },
     { // 小脑template
@@ -1110,12 +1161,6 @@ papaya.data.Atlas = papaya.data.Atlases[atlas]
 
 const setParams = (num)=>{
     params["images"] = ['otherData/Template_sym_MTR_80um_CERB_small.nii.gz', papayaLoadableImages[num].url];
-    // params[papayaLoadableImages[num].url.split('/')[1]] = {
-    //     min: -0.1,
-    //     max: 0.1,
-    //     lut: "Custom1",
-    //     // alpha: 0.4
-    // };
     params["atlas"] = papayaLoadableImages[num].url;
     /** surface底板 */
     params["surfaces"] = ['otherData/surfFS.CERB.pial_shifti.surf(1).gii']
@@ -1152,35 +1197,13 @@ switch (atlas) {
         params["images"] = [papayaLoadableImages[19].url, papayaLoadableImages[21].url];
         params["atlas"] = papayaLoadableImages[11].url;
         break;
-
-    // case "sub_all_gradient":
-    //     setParams(22)
-    //     break
-
-    // case "sub_all_5k_8k_gradient":
-    //     setParams(23)
-    //     break
         
     case "CERB_17lobe":
         setParams(22)
-        /** 覆盖下原来的颜色配置 */
-        params[papayaLoadableImages[22].url.split('/')[1]] = {
-            min: 0,
-            max: 20,
-            lut: "Spectrum",
-            // alpha: 0.4
-        };
         break
 
     case "CERB_13lobe":
         setParams(23)
-        /** 覆盖下原来的颜色配置 */
-        params[papayaLoadableImages[23].url.split('/')[1]] = {
-            min: 0,
-            max: 20,
-            lut: "Spectrum",
-            // alpha: 0.4
-        };
         break
 
     case "MBMv5_gradients":
@@ -1372,97 +1395,33 @@ params["luts"] = [
     }
 ];
 
-params[papayaLoadableImages[26].url.split('/')[1]] = {
-    min: 0.8,
-    max: 1.2,
-    lut: "Custom2",
-    // alpha: 0.4
-};
-params[papayaLoadableImages[25].url.split('/')[1]] = {
-    min: 0.9,
-    max: 1.1,
-    lut: "Custom1",
-    // alpha: 0.4
-};
-params['MBMv5_nuclei_neocortex_gradient-1.nii.gz'] = {
-    min: 0.9,
-    max: 1.1,
-    lut: "Custom2",
-    // alpha: 0.4
-};
-params['MBMv5_Intra-cerebellar gradient-2.nii.gz'] = {
-    min: 0.9,
-    max: 1.1,
-    lut: "Custom2",
-};
-
-for(let i=27;i<33;i++){
-    const config = papayaLoadableImages[i]
-    const fileName = config.url.split('/').at(-1)
-    params[fileName] = {
-        min: 0.9,
-        max: 1.1,
-        lut: 'Custom2'
-    }
-}
-
-//------
-params["atlas_MBM_cortex_vPaxinos_both_same.nii.gz"] = {
-    min: 0,
-    max: 259,
-    lut: "Custom",
-    alpha: 0.4
-};
-params['atlas_MBMv4_cortex_with_networks.nii.gz'] = {
-    min: 0,
-    max: 259,
-    lut: "Custom",
-    alpha: 0.4
-
-};
-params['atlas_MBM_cortex_vH_both_same.nii.gz'] = {
-    min: 0,
-    max: 259,
-    lut: "Custom",
-    alpha: 0.4
-
-};
-params['atlas_MBMv4_networks_parcellation.nii.gz'] = {
-    min: 0,
-    max: 259,
-    lut: "Custom",
-    alpha: 0.4
-};
-params["NIH_combined_wm_sub_cortexP_reindex.nii.gz"] = {
-    min: 0,
-    max: 312,
-    lut: "Custom",
-    alpha: 0.4
-};
-params["NIH_combined_wm_sub_cortexH_reindex.nii.gz"] = {
-    min: 0,
-    max: 312,
-    lut: "Custom",
-    alpha: 0.4
-};
-params['template_myelinmap_brain.nii.gz'] = {
-    min: 0,
-    max: 2000
-}
-params['mainView'] = 'coronal'
 params['surfaceBackground'] = 'Black'
-params["radiological"] = true
+// 这玩意这里配置不会生效，背景颜色是从cookies里拿的
+document.cookie = 'papaya-surfaceBackgroundColor=Black'
+
+params["mainView"] = 'surface'
 
 
 /**  */
-papayaLoadableImages.slice(22).forEach(config=>{
-    if(!config.coloredSurface){
+papayaLoadableImages.forEach(config=>{
+    if(!config.url){
         return
     }
     const fileName = config.url.split('/').at(-1)
-    params[fileName] = {
-        ...params[fileName],
-        coloredSurface: config.coloredSurface
+    if(config.lutsConfig){
+        params[fileName] = {
+            ...params[fileName],
+            ...config.lutsConfig
+        }
+    }
+    // console.log(params[fileName])
+
+
+    if(config.coloredSurface){
+        params[fileName] = {
+            ...params[fileName],
+            coloredSurface: config.coloredSurface
+        }
     }
 })
 
