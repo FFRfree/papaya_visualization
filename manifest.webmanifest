@@ -1,0 +1,13 @@
+{
+  "name": "MBMv5",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "icon/icon.png",
+      "sizes": "320x320",
+      "type": "image/png"
+    }
+  ],
+  "short_name": "MBMv5",
+  "start_url": "index.html"
+}
